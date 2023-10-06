@@ -13,9 +13,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PlaylistController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/ReviewConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Models/Comment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/ServiceErrors/Errors.Review.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/IReviewService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/UpsertedReviewResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicCatalog/Views/Review/CreateReview.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,15 +46,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e839be996964af195e7f3c1bcc89cb46c400/76/5119cfb4/MySqlDbContextOptionsBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6c1c725bda61664ef57f24a5c8957b67d87d6ecf9e978bdd4de9fffb57f6/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9eb0d6d539bf494b9c647c567861a4694400/4e/97948c91/ErrorOr`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3e7a5d9e8f1e8fc8895e3999e4b986ebd69c6f311e8a7f7ba94f4560a54a89/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Data/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -48,7 +78,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;reviews&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -64,9 +94,9 @@
       &quot;mariadb&quot;
     ],
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\spott\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\spott\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\spott\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Isak\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -179,6 +209,8 @@
       <workItem from="1696415441169" duration="2110000" />
       <workItem from="1696417577270" duration="433000" />
       <workItem from="1696418027500" duration="31000" />
+      <workItem from="1696499741683" duration="19715000" />
+      <workItem from="1696615350656" duration="618000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -222,7 +254,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="reviews" />
                       </list>
                     </value>
                   </entry>
@@ -239,23 +271,50 @@
     <MESSAGE value="Initial project setup. Added identity and a basic API fetch from Spotify API" />
     <MESSAGE value="Edited .gitignore" />
     <MESSAGE value="Intial commit. Added identiy and entity framework." />
-    <option name="LAST_COMMIT_MESSAGE" value="Intial commit. Added identiy and entity framework." />
+    <MESSAGE value="WIP - Reviews" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP - Reviews" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Program.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Users\spott\RiderProjects\Music\MusicCatalog\Program.cs" initialLine="22" containingFunctionPresentation="">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="41" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="958" />
+              <option value="1054" />
             </startOffsets>
             <endOffsets>
-              <option value="959" />
+              <option value="1099" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
+          <line>39</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="39" containingFunctionPresentation="Method 'CreateReview'">
+            <startOffsets>
+              <option value="1000" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1031" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="37" containingFunctionPresentation="Method 'CreateReview'">
+            <startOffsets>
+              <option value="916" />
+            </startOffsets>
+            <endOffsets>
+              <option value="990" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
