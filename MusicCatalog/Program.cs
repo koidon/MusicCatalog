@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
 using MusicCatalog.Services.Reviews;
+using MusicCatalog.Services.Spotify;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
+{
+    c.BaseAddress = new Uri("https://accounts.spotify.com/api/");
+});
+builder.Services.AddHttpClient<ISpotifyService, SpotifyService>(c =>
+{
+    c.BaseAddress = new Uri("https://api.spotify.com/v1/playlists");
+    c.DefaultRequestHeaders.Add("Accept", "application/.json");
+});
 
 var app = builder.Build();
 

@@ -1,8 +1,22 @@
-﻿@{
+﻿@model IEnumerable<MusicCatalog.Models.Playlist>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card m-1" style="width:350px;">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.TrackName)</h6>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.AlbumName)</p>
+                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture" />
+                <p class="card-text">Popularitet: @Html.DisplayFor(modelItem => item.Popularity)</p>
+            </div>
+        </div>
+    }
 </div>
+
