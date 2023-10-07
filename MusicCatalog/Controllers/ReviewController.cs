@@ -1,4 +1,4 @@
-using ErrorOr;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -27,21 +27,28 @@ public class ReviewController : Controller
 
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateReview(Review review)
     {
-        var user = await _userManager.GetUserAsync(User);
-        if (user != null)
+        try
         {
-            review.UserId = user.Id;
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                review.UserId = user.Id;
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            _reviewService.CreateReview(review);
         }
-
-        ErrorOr<Created> createReviewResult = _reviewService.CreateReview(review);
-
-        if (createReviewResult.IsError)
+        catch (Exception e)
         {
-            Console.WriteLine(createReviewResult.Errors);
-
-            return RedirectToAction("Index", "Home");
+            Debug.Write(e);
+            return RedirectToAction("Error", "Home");
         }
 
         return RedirectToAction("Index", "Home");
