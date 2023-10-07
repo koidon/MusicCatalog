@@ -27,6 +27,15 @@ public class HomeController : Controller
         return View(playlist);
     }
 
+    public async Task<IActionResult> Release(string songId)
+    {
+        var playlist = await GetPlaylist();
+
+        var song = playlist.FirstOrDefault(s => s.Id == songId);
+
+        return View(song);
+    }
+
 
     public IActionResult Privacy()
     {
@@ -46,7 +55,7 @@ public class HomeController : Controller
             var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"], _configuration["Spotify:ClientSecret"]);
 
             var playlist = await _spotifyService.GetPlaylist("0AKGtks1OdL5kSnL6D9IdL",
-                "tracks.items(track(name%2Cpopularity%2Calbum(name)%2Cartists(name%2Cpopularity)))", token);
+                "tracks.items(track(name%2Cpopularity%2Cid%2Calbum(name%2Cid%2Cimages(url))%2Cartists(name%2Cid%2Cpopularity)))", token);
 
             return playlist;
         }

@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data.Configurations;
@@ -22,5 +22,7 @@ public class ApplicationDbContext : IdentityDbContext
 
         base.OnModelCreating(modelBuilder);
     }
+
+    public DbSet<MusicCatalog.Models.Song> Song { get; set; } = default!;
 
 }

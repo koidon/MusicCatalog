@@ -2,6 +2,7 @@
 
 public class Song
 {
+    public string Id { get; set; }
     public string TrackName { get; set; }
     public string AlbumName { get; set; }
     public string Artists { get; set; }

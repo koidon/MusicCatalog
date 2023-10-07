@@ -15,8 +15,11 @@
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Playlist.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/GetPlaylist.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/GetPlaylist.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
     </list>
@@ -28,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ShowAlbumArtistTrack" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +68,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;HotReloadSettingsPage&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -80,7 +83,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: IIS Express">
     <configuration name="MusicCatalog: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -103,6 +106,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -171,6 +175,14 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.MusicCatalog: http" />
+      <item itemvalue=".NET Launch Settings Profile.MusicCatalog: https" />
+      <item itemvalue=".NET Launch Settings Profile.MusicCatalog: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.MusicWeb: http" />
+      <item itemvalue=".NET Launch Settings Profile.MusicWeb: https" />
+      <item itemvalue=".NET Launch Settings Profile.MusicWeb: IIS Express" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,6 +203,7 @@
       <workItem from="1696418027500" duration="31000" />
       <workItem from="1696499741683" duration="19715000" />
       <workItem from="1696615350656" duration="618000" />
+      <workItem from="1696690561391" duration="2116000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -255,49 +268,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="WIP - Reviews" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
-          <line>41</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="41" containingFunctionPresentation="Method 'CreateReview'">
-            <startOffsets>
-              <option value="1054" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1099" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
-          <line>39</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="39" containingFunctionPresentation="Method 'CreateReview'">
-            <startOffsets>
-              <option value="1000" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1031" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="37" containingFunctionPresentation="Method 'CreateReview'">
-            <startOffsets>
-              <option value="916" />
-            </startOffsets>
-            <endOffsets>
-              <option value="990" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#System.Net.Http.HttpMessageInvoker" memberName="_handler" />

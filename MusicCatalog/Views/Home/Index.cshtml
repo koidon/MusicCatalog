@@ -11,12 +11,17 @@
         <div class="card m-1" style="width:350px;">
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5>
-                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.TrackName)</h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <a asp-controller="Home" asp-action="Release" asp-route-songId="@item.Id">@Html.DisplayFor(modelItem => item.TrackName)</a>
+                </h6>
                 <p class="card-text">@Html.DisplayFor(modelItem => item.AlbumName)</p>
-                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture" />
-                <p class="card-text">Popularitet: @Html.DisplayFor(modelItem => item.Popularity)</p>
+                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture"/>
+                <p>Popularitet:</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: @item.Popularity%" aria-valuenow="@item.Popularity" aria-valuemin="0" aria-valuemax="100">@item.Popularity</div>
+                </div>
+                <p class="card-text">Id: @Html.DisplayFor(modelItem => item.Id)</p>
             </div>
         </div>
     }
 </div>
-

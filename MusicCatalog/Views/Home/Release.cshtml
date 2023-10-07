@@ -1,0 +1,37 @@
+@model MusicCatalog.Models.Song
+
+@{
+    ViewData["Title"] = "Release";
+}
+
+<h1>@Html.DisplayFor(model => model.TrackName)</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-light">
+                <img src="@Html.DisplayFor(model => model.ImageUrl)" class="card-img-top" alt="Release picture" />
+                <div class="card-body">
+                    <h5 class="card-title">Album</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.AlbumName)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Artist</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Artists)</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5 class="card-title">Popularity</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: @Model.Popularity%" aria-valuenow="@Model.Popularity" aria-valuemin="0" aria-valuemax="100">@Model.Popularity</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

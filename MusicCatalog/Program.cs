@@ -22,7 +22,7 @@ builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c 
 });
 builder.Services.AddHttpClient<ISpotifyService, SpotifyService>(c =>
 {
-    c.BaseAddress = new Uri("https://api.spotify.com/v1/playlists");
+    c.BaseAddress = new Uri("https://api.spotify.com/v1");
     c.DefaultRequestHeaders.Add("Accept", "application/.json");
 });
 
