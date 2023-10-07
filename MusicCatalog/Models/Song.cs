@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace MusicCatalog.Models;
 
-namespace MusicCatalog.Models;
-[NotMapped]
-public class Playlist
+public class Song
 {
     public string TrackName { get; set; }
     public string AlbumName { get; set; }

@@ -4,5 +4,5 @@ namespace MusicCatalog.Services.Spotify;
 
 public interface ISpotifyService
 {
-    Task<IEnumerable<Playlist>> GetPlaylist(string playlistId, string fields, string accessToken);
+    Task<IEnumerable<Song>> GetPlaylist(string playlistId, string fields, string accessToken);
 }

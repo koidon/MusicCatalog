@@ -14,7 +14,7 @@ public class SpotifyService : ISpotifyService
         _httpClient = httpClient;
     }
 
-    public async Task<IEnumerable<Playlist>> GetPlaylist(string playlistId, string fields, string accessToken)
+    public async Task<IEnumerable<Song>> GetPlaylist(string playlistId, string fields, string accessToken)
     {
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
@@ -25,7 +25,7 @@ public class SpotifyService : ISpotifyService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var responseObject = await JsonSerializer.DeserializeAsync<GetPlaylist>(responseStream);
 
-        return responseObject?.tracks?.items.Select(item => new Playlist
+        return responseObject?.tracks?.items.Select(item => new Song
         {
             TrackName = item.track.name,
             AlbumName = item.track.album.name,

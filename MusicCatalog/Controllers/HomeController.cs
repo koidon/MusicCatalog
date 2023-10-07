@@ -39,7 +39,7 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    private async Task<IEnumerable<Playlist>> GetPlaylist()
+    private async Task<IEnumerable<Song>> GetPlaylist()
     {
         try
         {
@@ -54,7 +54,7 @@ public class HomeController : Controller
         {
             Debug.Write(e);
 
-            return Enumerable.Empty<Playlist>();
+            return Enumerable.Empty<Song>();
         }
     }
 }
