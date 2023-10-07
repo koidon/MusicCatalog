@@ -1,6 +1,6 @@
 ﻿namespace MusicCatalog.Models;
 
-public class Playlist
+public class Song
 {
     public string TrackName { get; set; }
     public string AlbumName { get; set; }
