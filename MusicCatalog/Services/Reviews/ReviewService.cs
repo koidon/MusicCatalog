@@ -14,41 +14,33 @@ public class ReviewService : IReviewService
         _dbContext = dbContext;
     }
 
-    public ErrorOr<Created> CreateReview(Review review)
+    public void CreateReview(Review review)
     {
 
         _dbContext.Add(review);
         _dbContext.SaveChanges();
 
-        return Result.Created;
     }
 
-    public ErrorOr<Deleted> DeleteReview(int reviewId)
+    public void DeleteReview(int reviewId)
     {
         var review = _dbContext.Reviews.Find(reviewId);
 
-        if (review is null)
-        {
-            return Errors.Review.NotFound;
-        }
-
         _dbContext.Remove(review);
         _dbContext.SaveChanges();
-
-        return Result.Deleted;
     }
 
-    public ErrorOr<Review> GetReview(int reviewId)
+    public Review GetReview(int reviewId)
     {
         if (_dbContext.Reviews.Find(reviewId) is Review review)
         {
             return review;
         }
 
-        return Errors.Review.NotFound;
+        return null;
     }
 
-    public ErrorOr<UpsertedReview> UpsertReview(Review review)
+    public void UpsertReview(Review review)
     {
         var isNewlyCreated = _dbContext.Reviews.Find(review.Id) is not Review;
 
@@ -62,8 +54,6 @@ public class ReviewService : IReviewService
         }
 
         _dbContext.SaveChanges();
-
-        return new UpsertedReview(isNewlyCreated);
     }
 
 

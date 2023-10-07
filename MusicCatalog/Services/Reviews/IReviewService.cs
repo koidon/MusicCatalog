@@ -5,8 +5,9 @@ namespace MusicCatalog.Services.Reviews;
 
 public interface IReviewService
 {
-    ErrorOr<Created> CreateReview(Review review);
-    ErrorOr<Review> GetReview(int id);
-    ErrorOr<UpsertedReview> UpsertReview(Review review);
-    ErrorOr<Deleted> DeleteReview(int id);
+    void CreateReview(Review review);
+    Review GetReview(int id);
+
+    void UpsertReview(Review review);
+    void DeleteReview(int id);
 }
