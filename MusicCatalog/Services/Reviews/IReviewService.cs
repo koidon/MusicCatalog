@@ -8,7 +8,7 @@ public interface IReviewService
     Task<CreateReviewDto> CreateReview(CreateReviewDto review);
     Review GetReview(int id);
 
-    Task<List<Review>> GetReviewsById(string playlistId);
+    Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId);
 
     void UpsertReview(Review review);
     void DeleteReview(int id);

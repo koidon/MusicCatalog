@@ -37,10 +37,15 @@
             {
                 <div class="card bg-light mt-3">
                     <div class="card-body">
-                        @await Html.PartialAsync("~/Views/Review/CreateReview.cshtml", new CreateReviewDto())
+                        @await Component.InvokeAsync("CreateReview", new CreateReviewDto { SongId = Model.Id })
                     </div>
                 </div>
             }
+            <div class="card bg-light mt-3">
+                <div class="card-body">
+                    @await Component.InvokeAsync("SongReviews", new { songId = Model.Id })
+                </div>
+            </div>
         </div>
     </div>
 </div>

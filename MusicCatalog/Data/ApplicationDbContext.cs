@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data.Configurations;
 using MusicCatalog.Models;
+using MusicCatalog.Dtos.Review;
 
 namespace MusicCatalog.Data;
 
@@ -24,5 +25,7 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<MusicCatalog.Models.Song> Song { get; set; } = default!;
+
+    public DbSet<MusicCatalog.Dtos.Review.GetReviewDto> GetReviewDto { get; set; } = default!;
 
 }

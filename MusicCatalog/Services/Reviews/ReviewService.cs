@@ -34,11 +34,17 @@ public class ReviewService : IReviewService
         return newReview;
     }
 
-    public async Task<List<Review>> GetReviewsById(string playlistId)
+    public async Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId)
     {
-        var reviews = await _dbContext.Reviews
-            .Where(r => playlistId.Contains(r.UserId))
+
+        var dbReviews = await _dbContext.Reviews
+            .Include(r => r.User)
+            .Where(r => songId.Contains(r.SongId))
             .ToListAsync();
+
+
+
+        var reviews = dbReviews.Select(r => _mapper.Map<GetReviewDto>(r)).ToList();
 
         return reviews;
     }

@@ -19,15 +19,15 @@ public class ReviewController : Controller
         _userManager = userManager;
     }
 
-    [HttpGet]
+    /*[HttpGet]
     [Authorize]
     public IActionResult CreateReview()
     {
         return View();
-    }
+    } */
 
 
-    [HttpPost]
+   /* [HttpPost]
     [Authorize]
     public async Task<IActionResult> CreateReview(CreateReviewDto review)
     {
@@ -36,7 +36,8 @@ public class ReviewController : Controller
 
             if (!ModelState.IsValid)
             {
-                return View(review);
+
+                return View("~/Views/Home/Release.cshtml", new Song());
             }
 
 
@@ -49,14 +50,24 @@ public class ReviewController : Controller
         }
 
         return RedirectToAction("Release", "Home", new {songId=review.SongId});
-    }
+    } */
 
-    /*  [HttpGet]
+
+   /* [HttpGet]
+    public async Task<IActionResult> SongReviews(string songId)
+    {
+
+        var reviews = await _reviewService.GetReviewsById(songId);
+
+        return PartialView("SongReviews", reviews);
+    }*/
+
+/*
+      [HttpGet]
       public IActionResult GetReview(int id)
       {
           return View();
       }
-
       [HttpPut]
       public IActionResult UpsertReview(Review review)
       {
