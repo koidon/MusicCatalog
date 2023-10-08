@@ -27,11 +27,12 @@ public class SpotifyService : ISpotifyService
 
         return responseObject?.tracks?.items.Select(item => new Song
         {
+            Id = item.track.id,
             TrackName = item.track.name,
             AlbumName = item.track.album.name,
             Artists = string.Join(", ", item.track.artists.Select(artist => artist.name)),
             Popularity = item.track.popularity.ToString(),
-            ImageUrl = item.track.album.images[1].url
+            ImageUrl = item.track.album.images[0].url
         });
     }
 }

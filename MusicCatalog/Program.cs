@@ -15,6 +15,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
 {
@@ -22,9 +23,15 @@ builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c 
 });
 builder.Services.AddHttpClient<ISpotifyService, SpotifyService>(c =>
 {
-    c.BaseAddress = new Uri("https://api.spotify.com/v1/playlists");
+    c.BaseAddress = new Uri("https://api.spotify.com/v1");
     c.DefaultRequestHeaders.Add("Accept", "application/.json");
 });
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(30);
+    options.Cookie.HttpOnly = true;
+});
+
 
 var app = builder.Build();
 
@@ -46,6 +53,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

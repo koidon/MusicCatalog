@@ -1,14 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace MusicCatalog.Models;
+namespace MusicCatalog.Dtos.Review;
 
-public class Review
+public class GetReviewDto
 {
-
-    public const int MinContentLength = 3;
-    public const int MaxContentLength = 255;
-
-
     public int Id { get; set; }
 
     public string UserId { get; set; } = null!;
@@ -23,7 +18,4 @@ public class Review
 
     public IdentityUser User { get; set; } = null!;
 
-    public ICollection<Comment>? Comments { get; set; }
-
 }
-

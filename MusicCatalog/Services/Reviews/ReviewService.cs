@@ -1,25 +1,52 @@
-using ErrorOr;
+using System.Security.Claims;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
+using MusicCatalog.Dtos.Review;
 using MusicCatalog.Models;
-using MusicCatalog.ServiceErrors;
 
 namespace MusicCatalog.Services.Reviews;
 
 public class ReviewService : IReviewService
 {
     private readonly ApplicationDbContext _dbContext;
+    private readonly IMapper _mapper;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public ReviewService(ApplicationDbContext dbContext)
+    public ReviewService(ApplicationDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
     {
+        _httpContextAccessor = httpContextAccessor;
         _dbContext = dbContext;
+        _mapper = mapper;
     }
 
-    public void CreateReview(Review review)
+    private string GetUserId() => _httpContextAccessor.HttpContext!.User
+        .FindFirstValue(ClaimTypes.NameIdentifier)!;
+
+    public async Task<CreateReviewDto> CreateReview(CreateReviewDto newReview)
+    {
+        var review = _mapper.Map<Review>(newReview);
+        review.User = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
+
+        _dbContext.Reviews.Add(review);
+        await _dbContext.SaveChangesAsync();
+
+        return newReview;
+    }
+
+    public async Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId)
     {
 
-        _dbContext.Add(review);
-        _dbContext.SaveChanges();
+        var dbReviews = await _dbContext.Reviews
+            .Include(r => r.User)
+            .Where(r => songId.Contains(r.SongId))
+            .ToListAsync();
 
+
+
+        var reviews = dbReviews.Select(r => _mapper.Map<GetReviewDto>(r)).ToList();
+
+        return reviews;
     }
 
     public void DeleteReview(int reviewId)
@@ -55,8 +82,4 @@ public class ReviewService : IReviewService
 
         _dbContext.SaveChanges();
     }
-
-
-
-
 }

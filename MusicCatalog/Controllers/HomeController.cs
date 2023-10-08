@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MusicCatalog.Dtos.Review;
 using MusicCatalog.Models;
+using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 
 namespace MusicCatalog.Controllers;
@@ -10,14 +13,16 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly ISpotifyAccountService _spotifyAccountService;
     private readonly ISpotifyService _spotifyService;
+    private readonly IReviewService _reviewService;
     private readonly IConfiguration _configuration;
 
-    public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService, IConfiguration configuration, ISpotifyService spotifyService)
+    public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService, IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
     {
         _logger = logger;
         _spotifyAccountService = spotifyAccountService;
         _configuration = configuration;
         _spotifyService = spotifyService;
+        _reviewService = reviewService;
     }
 
     public async Task<IActionResult> Index()
@@ -25,6 +30,44 @@ public class HomeController : Controller
         var playlist = await GetPlaylist();
 
         return View(playlist);
+    }
+
+    public async Task<IActionResult> Release(string songId)
+    {
+        var playlist = await GetPlaylist();
+
+        var song = playlist.FirstOrDefault(s => s.Id == songId);
+
+        return View(song);
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> CreateReview(CreateReviewDto review)
+    {
+
+        var playlist = await GetPlaylist();
+
+        var song = playlist.FirstOrDefault(s => s.Id == review.SongId);
+        try
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return View("Release", song);
+            }
+
+
+            await _reviewService.CreateReview(review);
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            return View("Error");
+        }
+
+        return View("Release", song);
     }
 
 
@@ -46,7 +89,7 @@ public class HomeController : Controller
             var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"], _configuration["Spotify:ClientSecret"]);
 
             var playlist = await _spotifyService.GetPlaylist("0AKGtks1OdL5kSnL6D9IdL",
-                "tracks.items(track(name%2Cpopularity%2Calbum(name)%2Cartists(name%2Cpopularity)))", token);
+                "tracks.items(track(name%2Cpopularity%2Cid%2Calbum(name%2Cid%2Cimages(url))%2Cartists(name%2Cid%2Cpopularity)))", token);
 
             return playlist;
         }
