@@ -31,6 +31,8 @@ public class HomeController : Controller
     {
         var playlist = await GetPlaylist();
 
+        ViewBag.SongId = songId;
+
         var song = playlist.FirstOrDefault(s => s.Id == songId);
 
         return View(song);

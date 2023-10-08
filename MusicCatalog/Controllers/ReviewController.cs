@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MusicCatalog.Dtos.Review;
 using MusicCatalog.Models;
 using MusicCatalog.Services.Reviews;
 
@@ -28,22 +29,18 @@ public class ReviewController : Controller
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> CreateReview(Review review)
+    public async Task<IActionResult> CreateReview(CreateReviewDto review)
     {
         try
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user != null)
-            {
-                review.UserId = user.Id;
-            }
 
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(review);
             }
 
-            _reviewService.CreateReview(review);
+
+            await _reviewService.CreateReview(review);
         }
         catch (Exception e)
         {
@@ -51,7 +48,7 @@ public class ReviewController : Controller
             return RedirectToAction("Error", "Home");
         }
 
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Release", "Home", new {songId=review.SongId});
     }
 
     /*  [HttpGet]

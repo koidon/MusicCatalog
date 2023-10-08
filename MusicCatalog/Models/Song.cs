@@ -1,5 +1,8 @@
-﻿namespace MusicCatalog.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace MusicCatalog.Models;
+
+[NotMapped]
 public class Song
 {
     public string Id { get; set; }

@@ -1060,8 +1060,8 @@ svph2118_db_ht2022|schema||svph2118||grant option|G</Grants>
     </schema>
     <schema id="326" parent="1" name="svph2118_db_ht2022">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-10-06.03:31:27</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-10-05.23:31:27</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-10-08.02:44:15</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-10-07.22:44:17</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="327" parent="1" name="svph2118_db2_ht2022">
@@ -1485,7 +1485,7 @@ Name</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="417" parent="337" name="Id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1512,42 +1512,47 @@ Name</ColNames>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <foreign-key id="422" parent="337" name="FK_Reviews_AspNetUsers_UserId">
+    <column id="422" parent="337" name="SongId">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="423" parent="337" name="FK_Reviews_AspNetUsers_UserId">
       <ColNames>UserId</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>Id</RefColNames>
       <RefTableName>AspNetUsers</RefTableName>
     </foreign-key>
-    <index id="423" parent="337" name="PRIMARY">
+    <index id="424" parent="337" name="PRIMARY">
       <ColNames>Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="424" parent="337" name="IX_Reviews_UserId">
+    <index id="425" parent="337" name="IX_Reviews_UserId">
       <ColNames>UserId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="425" parent="337" name="PRIMARY">
+    <key id="426" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="426" parent="338" name="MigrationId">
+    <column id="427" parent="338" name="MigrationId">
       <DasType>varchar(150)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="427" parent="338" name="ProductVersion">
+    <column id="428" parent="338" name="ProductVersion">
       <DasType>varchar(32)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="428" parent="338" name="PRIMARY">
+    <index id="429" parent="338" name="PRIMARY">
       <ColNames>MigrationId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="429" parent="338" name="PRIMARY">
+    <key id="430" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
