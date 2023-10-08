@@ -12,17 +12,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added release view. Added ability to create reviews in release view. Added Dto for review. Added automapper for model mapping between entity model and dto. Added model validation.">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/IReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/IReviewService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Review/CreateReview.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +61,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SpotifyWebAPI&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -209,6 +205,7 @@
       <workItem from="1696615350656" duration="618000" />
       <workItem from="1696690561391" duration="2116000" />
       <workItem from="1696758219102" duration="16885000" />
+      <workItem from="1696777332172" duration="5359000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -295,7 +292,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
-          <line>36</line>
+          <line>35</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="43" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
               <option value="876" />
@@ -308,33 +305,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>46</line>
+          <line>73</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="45" containingFunctionPresentation="Method 'GetReviewsById'">
             <startOffsets>
-              <option value="1389" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1464" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>48</line>
+          <line>75</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="47" containingFunctionPresentation="Method 'GetReviewsById'">
             <startOffsets>
-              <option value="1474" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1489" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>28</line>
+          <line>55</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="28" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
               <option value="926" />
@@ -347,7 +344,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>33</line>
+          <line>60</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="33" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
               <option value="1105" />
@@ -360,7 +357,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>27</line>
+          <line>54</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="27" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
               <option value="873" />
@@ -373,20 +370,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>39</line>
+          <line>66</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="39" containingFunctionPresentation="Method 'GetReviewsById'">
             <startOffsets>
-              <option value="1224" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1377" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>30</line>
+          <line>57</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="30" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
               <option value="1019" />

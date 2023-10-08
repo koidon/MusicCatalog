@@ -1,46 +1,19 @@
 @model IEnumerable<MusicCatalog.Dtos.Review.GetReviewDto>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                UserId
-            </th>
-            <th>
-               SongId
-            </th>
-            <th>
-                Content
-            </th>
-            <th>
-                CreatedAt
-            </th>
-            <th>
-                UpdatedAt
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SongId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-        </tr>
+
+<h3>Recensioner</h3>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-1">
+        <div class="d-flex gap-2 card-header pb-0">
+            <p class="card-title mb-2">@item.User.UserName</p>
+            <p class="text-muted mb-2">@item.CreatedAt</p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@item.Content</p>
+            <a href="#" class="btn btn-primary"></a>
+        </div>
+    </div>
 }
-    </tbody>
-</table>

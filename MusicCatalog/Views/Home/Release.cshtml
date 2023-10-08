@@ -10,16 +10,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="card bg-light">
+            <div class="card border-primary mb-3">
                 <img src="@Html.DisplayFor(model => model.ImageUrl)" class="card-img-top" alt="Release picture"/>
                 <div class="card-body">
-                    <h5 class="card-title">Album</h5>
+                    <h5 class="card-title bg-dark">Album</h5>
                     <p class="card-text">@Html.DisplayFor(model => model.AlbumName)</p>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card bg-light">
+            <div class="card bg-dark">
                 <div class="card-body">
                     <h5 class="card-title">Artist</h5>
                     <p class="card-text">@Html.DisplayFor(model => model.Artists)</p>
@@ -35,13 +35,13 @@
             </div>
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="card bg-light mt-3">
+                <div class="card bg-dark mt-3">
                     <div class="card-body">
                         @await Component.InvokeAsync("CreateReview", new CreateReviewDto { SongId = Model.Id })
                     </div>
                 </div>
             }
-            <div class="card bg-light mt-3">
+            <div class="card bg-dark mt-3">
                 <div class="card-body">
                     @await Component.InvokeAsync("SongReviews", new { songId = Model.Id })
                 </div>
