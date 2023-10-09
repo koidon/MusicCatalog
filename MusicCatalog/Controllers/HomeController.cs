@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Dtos.Review;
+using MusicCatalog.Enums;
 using MusicCatalog.Models;
+using MusicCatalog.Services;
 using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 
@@ -16,7 +18,8 @@ public class HomeController : Controller
     private readonly IReviewService _reviewService;
     private readonly IConfiguration _configuration;
 
-    public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService, IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
+    public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService,
+        IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
     {
         _logger = logger;
         _spotifyAccountService = spotifyAccountService;
@@ -34,9 +37,8 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Release(string songId)
     {
-        var playlist = await GetPlaylist();
+        var song = await GetSong(songId);
 
-        var song = playlist.FirstOrDefault(s => s.Id == songId);
 
         return View(song);
     }
@@ -45,18 +47,10 @@ public class HomeController : Controller
     [Authorize]
     public async Task<IActionResult> CreateReview(CreateReviewDto review)
     {
-
-        var playlist = await GetPlaylist();
-
-        var song = playlist.FirstOrDefault(s => s.Id == review.SongId);
         try
         {
-
             if (!ModelState.IsValid)
-            {
-
-                return View("Release", song);
-            }
+                ViewComponent("CreateReview");
 
 
             await _reviewService.CreateReview(review);
@@ -64,7 +58,26 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            return View("Error");
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle skapas");
+        }
+
+        return RedirectToAction("Release", new { songId = review.SongId });
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> DeleteReview(int reviewId, string songId)
+    {
+        var song = await GetSong(songId);
+
+        var response = await _reviewService.DeleteReview(reviewId);
+        if (response is null)
+        {
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle tas bort");
+        }
+        else
+        {
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Success, "Recensionen har tagits bort");
         }
 
         return View("Release", song);
@@ -86,10 +99,12 @@ public class HomeController : Controller
     {
         try
         {
-            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"], _configuration["Spotify:ClientSecret"]);
+            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"],
+                _configuration["Spotify:ClientSecret"]);
 
             var playlist = await _spotifyService.GetPlaylist("0AKGtks1OdL5kSnL6D9IdL",
-                "tracks.items(track(name%2Cpopularity%2Cid%2Calbum(name%2Cid%2Cimages(url))%2Cartists(name%2Cid%2Cpopularity)))", token);
+                "tracks.items(track(name%2Cpopularity%2Cid%2Calbum(name%2Cid%2Cimages(url))%2Cartists(name%2Cid%2Cpopularity)))",
+                token);
 
             return playlist;
         }
@@ -98,6 +113,25 @@ public class HomeController : Controller
             Debug.Write(e);
 
             return Enumerable.Empty<Song>();
+        }
+    }
+
+    private async Task<Song> GetSong(string songId)
+    {
+        try
+        {
+            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"],
+                _configuration["Spotify:ClientSecret"]);
+
+            var song = await _spotifyService.GetSongById(songId, token);
+
+            return song;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+
+            return null;
         }
     }
 }

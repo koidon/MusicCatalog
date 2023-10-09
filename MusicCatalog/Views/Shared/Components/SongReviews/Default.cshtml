@@ -1,15 +1,22 @@
 @model IEnumerable<MusicCatalog.Dtos.Review.GetReviewDto>
 
 
-
 <h3>Recensioner</h3>
 
 @foreach (var item in Model)
 {
     <div class="card mb-1">
-        <div class="d-flex gap-2 card-header pb-0">
-            <p class="card-title mb-2">@item.User.UserName</p>
-            <p class="text-muted mb-2">@item.CreatedAt</p>
+        <div class="d-flex justify-content-between card-header pb-0">
+            <div class="d-flex gap-2">
+                <p class="card-title mb-2">@item.User.UserName</p>
+                <p class="text-muted mb-2">@item.CreatedAt</p>
+            </div>
+            <form method="post" asp-controller="Home" asp-action="DeleteReview">
+                <input type="hidden" name="songId" value="@item.SongId">
+                <input type="hidden" name="reviewId" value="@item.Id">
+                <button type="submit" class="btn btn-danger">Ta bort inlägg</button>
+            </form>
+
         </div>
         <div class="card-body">
             <p class="card-text">@item.Content</p>

@@ -49,12 +49,32 @@ public class ReviewService : IReviewService
         return reviews;
     }
 
-    public void DeleteReview(int reviewId)
+    public async Task<List<GetReviewDto>> DeleteReview(int reviewId)
     {
-        var review = _dbContext.Reviews.Find(reviewId);
 
-        _dbContext.Remove(review);
-        _dbContext.SaveChanges();
+        var reviews = new List<GetReviewDto>();
+
+        try
+        {
+            var dbReview = await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId());
+            if (dbReview is null)
+                throw new Exception($"Character with Id '{reviewId}' not found.");
+
+            _dbContext.Reviews.Remove(dbReview);
+            await _dbContext.SaveChangesAsync();
+
+
+            reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
+                .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return null;
+        }
+
+        return reviews;
     }
 
     public Review GetReview(int reviewId)

@@ -11,5 +11,5 @@ public interface IReviewService
     Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId);
 
     void UpsertReview(Review review);
-    void DeleteReview(int id);
+    Task<List<GetReviewDto>> DeleteReview(int reviewId);
 }

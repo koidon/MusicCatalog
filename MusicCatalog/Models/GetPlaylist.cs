@@ -26,7 +26,7 @@ public class Track
     public int popularity { get; set; }
 }
 
-public class Album
+public partial class Album
 {
     public string id { get; set; }
     public Images[] images { get; set; }
@@ -40,7 +40,7 @@ public class Images
     public int width { get; set; }
 }
 
-public class Artists
+public partial class Artists
 {
     public string id { get; set; }
     public string name { get; set; }
