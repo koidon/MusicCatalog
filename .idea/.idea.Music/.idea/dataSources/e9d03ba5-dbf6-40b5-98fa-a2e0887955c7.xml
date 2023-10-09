@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="svph2118_db_ht2022@atlantis.informatik.umu.se">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.49">
-    <root id="1">
-      <DefaultCasing>exact</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <Grants>svph2118_db2_ht2022|schema||svph2118||ALTER|G
-svph2118_db2_ht2022|schema||svph2118||ALTER ROUTINE|G
-svph2118_db2_ht2022|schema||svph2118||CREATE|G
-svph2118_db2_ht2022|schema||svph2118||CREATE ROUTINE|G
-svph2118_db2_ht2022|schema||svph2118||CREATE TEMPORARY TABLES|G
-svph2118_db2_ht2022|schema||svph2118||CREATE VIEW|G
-svph2118_db2_ht2022|schema||svph2118||DELETE|G
-svph2118_db2_ht2022|schema||svph2118||DELETE HISTORY|G
-svph2118_db2_ht2022|schema||svph2118||DROP|G
-svph2118_db2_ht2022|schema||svph2118||EVENT|G
-svph2118_db2_ht2022|schema||svph2118||EXECUTE|G
-svph2118_db2_ht2022|schema||svph2118||INDEX|G
-svph2118_db2_ht2022|schema||svph2118||INSERT|G
-svph2118_db2_ht2022|schema||svph2118||LOCK TABLES|G
-svph2118_db2_ht2022|schema||svph2118||REFERENCES|G
-svph2118_db2_ht2022|schema||svph2118||SELECT|G
-svph2118_db2_ht2022|schema||svph2118||SHOW VIEW|G
-svph2118_db2_ht2022|schema||svph2118||TRIGGER|G
-svph2118_db2_ht2022|schema||svph2118||UPDATE|G
-svph2118_db2_ht2022|schema||svph2118||grant option|G
-svph2118_db_ht2022|schema||svph2118||ALTER|G
-svph2118_db_ht2022|schema||svph2118||ALTER ROUTINE|G
-svph2118_db_ht2022|schema||svph2118||CREATE|G
-svph2118_db_ht2022|schema||svph2118||CREATE ROUTINE|G
-svph2118_db_ht2022|schema||svph2118||CREATE TEMPORARY TABLES|G
-svph2118_db_ht2022|schema||svph2118||CREATE VIEW|G
-svph2118_db_ht2022|schema||svph2118||DELETE|G
-svph2118_db_ht2022|schema||svph2118||DELETE HISTORY|G
-svph2118_db_ht2022|schema||svph2118||DROP|G
-svph2118_db_ht2022|schema||svph2118||EVENT|G
-svph2118_db_ht2022|schema||svph2118||EXECUTE|G
-svph2118_db_ht2022|schema||svph2118||INDEX|G
-svph2118_db_ht2022|schema||svph2118||INSERT|G
-svph2118_db_ht2022|schema||svph2118||LOCK TABLES|G
-svph2118_db_ht2022|schema||svph2118||REFERENCES|G
-svph2118_db_ht2022|schema||svph2118||SELECT|G
-svph2118_db_ht2022|schema||svph2118||SHOW VIEW|G
-svph2118_db_ht2022|schema||svph2118||TRIGGER|G
-svph2118_db_ht2022|schema||svph2118||UPDATE|G
-svph2118_db_ht2022|schema||svph2118||grant option|G</Grants>
-      <ServerVersion>10.6.12</ServerVersion>
-    </root>
+    <root id="1"/>
     <collation id="2" parent="1" name="big5_chinese_ci">
       <Charset>big5</Charset>
       <DefaultForCharset>1</DefaultForCharset>

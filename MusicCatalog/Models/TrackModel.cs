@@ -1,11 +1,12 @@
+
 namespace MusicCatalog.Models
 {
     public class TrackModel{
-        public TrackModel() {}
-
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public int Popularity { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public int popularity { get; set; }
+        public Album album { get; set; }
+        public List<Artist> artists { get; set; }
+            
     }
 }

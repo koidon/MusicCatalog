@@ -1,6 +1,8 @@
 using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using MusicCatalog.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MusicCatalog.Controllers
@@ -21,7 +23,7 @@ namespace MusicCatalog.Controllers
         {
             try
             {
-                string playlistId = "37i9dQZF1DXcecv7ESbOPu?si=791688b7c7644d80";
+                string playlistId = "37i9dQZF1DXcecv7ESbOPu";
                 var clientId = _configuration.GetValue<string>("ClientId");
                 var clientSecret = _configuration.GetValue<string>("ClientSecret");
 
@@ -36,7 +38,8 @@ namespace MusicCatalog.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // Send the POST request to obtain the access token
-                var tokenResponse = await client.PostAsync("https://accounts.spotify.com/api/token", new StringContent(requestBody.ToString(), Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var tokenResponse = await client.PostAsync("https://accounts.spotify.com/api/token",
+                    new StringContent(requestBody.ToString(), Encoding.UTF8, "application/x-www-form-urlencoded"));
 
                 tokenResponse.EnsureSuccessStatusCode();
                 var tokenContent = await tokenResponse.Content.ReadAsStringAsync();
@@ -49,21 +52,24 @@ namespace MusicCatalog.Controllers
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
                 // Now you can use the access token to make requests to the Spotify API
-
-                using HttpResponseMessage response =
-                    await client.GetAsync($"https://api.spotify.com/v1/playlists/{playlistId}");
+                using HttpResponseMessage response = await client.GetAsync($"https://api.spotify.com/v1/playlists/{playlistId}");
 
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine(responseBody);
+                // Assuming responseBody contains the JSON data from the Spotify API response
+                TracksContainer tracksContainer = JsonConvert.DeserializeObject<TracksContainer>(responseBody);
+                
+
+                return View(tracksContainer);
+                
             }
             catch (HttpRequestException e)
             {
                 Console.WriteLine("Exception caught" + e.Message);
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
         }
     }
 }
