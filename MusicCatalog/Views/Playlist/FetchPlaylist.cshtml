@@ -1,0 +1,25 @@
+@model TracksContainer
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Track Name</th>
+        <th>Artist Name</th>
+        <th>Album Name</th>
+        <th>Popularity</th>
+        <th>Release Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.tracks.items)
+    {
+        <tr>
+            <td>@item.track.name</td>
+            <td>@item.track.artists[0].name</td>
+            <td>@item.track.album.name</td>
+            <td>@item.track.popularity</td>
+            <td>@item.track.album.release_date.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>
