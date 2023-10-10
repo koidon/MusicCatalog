@@ -14,11 +14,19 @@
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/ICommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/ICommunityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,33 +69,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature-community",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-community&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;,
+      &quot;mariadb&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Isak\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\pette\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\pette\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\pette\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: IIS Express">
     <configuration name="MusicCatalog: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
@@ -212,6 +220,8 @@
       <workItem from="1696758219102" duration="16885000" />
       <workItem from="1696777332172" duration="5359000" />
       <workItem from="1696843341905" duration="4952000" />
+      <workItem from="1696927896291" duration="5086000" />
+      <workItem from="1696940299164" duration="3603000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -253,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696760890320</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Starting community and post services">
+      <option name="closed" value="true" />
+      <created>1696880931067</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1696880931067</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +308,8 @@
     <MESSAGE value="WIP - Reviews" />
     <MESSAGE value="Ability to create reviews in partial view. Added Dtos for and model validation. Added automapper" />
     <MESSAGE value="Added release view. Added ability to create reviews in release view. Added Dto for review. Added automapper for model mapping between entity model and dto. Added model validation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added release view. Added ability to create reviews in release view. Added Dto for review. Added automapper for model mapping between entity model and dto. Added model validation." />
+    <MESSAGE value="Starting community and post services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting community and post services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

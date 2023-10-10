@@ -16,6 +16,8 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<Review> Reviews { get; set; } = null!;
     public DbSet<Comment> Comments { get; set; } = null!;
+    public DbSet<Community> Communities { get; set; } = null!;
+    public DbSet<Post> Posts { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -27,5 +29,5 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<MusicCatalog.Models.Song> Song { get; set; } = default!;
 
     public DbSet<MusicCatalog.Dtos.Review.GetReviewDto> GetReviewDto { get; set; } = default!;
-
+ //FRÅGA OM
 }

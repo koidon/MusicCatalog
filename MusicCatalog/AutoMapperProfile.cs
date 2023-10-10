@@ -1,4 +1,6 @@
 using AutoMapper;
+using MusicCatalog.Dtos.Community;
+using MusicCatalog.Dtos.Post;
 using MusicCatalog.Dtos.Review;
 using MusicCatalog.Models;
 
@@ -9,6 +11,10 @@ public class AutoMapperProfile : Profile
     public AutoMapperProfile()
     {
         CreateMap<CreateReviewDto,Review>();
-        CreateMap<Review,GetReviewDto>();
+        CreateMap<Review, GetReviewDto>();
+        CreateMap<CreatePostDto,Post>();
+        CreateMap<Post, GetPostDto>();
+        CreateMap<CreateCommunityDto, Community>();
+        CreateMap<Community, CreateCommunityDto>();
     }
 }
