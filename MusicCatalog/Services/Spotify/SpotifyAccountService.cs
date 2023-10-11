@@ -14,7 +14,7 @@ public class SpotifyAccountService : ISpotifyAccountService
         _httpClient = httpClient;
     }
 
-    public async Task<string> GetToken(string clientId, string clientSecret)
+    public async Task<string> GetToken(string? clientId, string? clientSecret)
     {
         var request = new HttpRequestMessage(HttpMethod.Post, "token");
 
@@ -23,7 +23,7 @@ public class SpotifyAccountService : ISpotifyAccountService
 
         request.Content = new FormUrlEncodedContent(new Dictionary<string, string>
         {
-            {"grant_type", "client_credentials"}
+            { "grant_type", "client_credentials" }
         });
 
         var response = await _httpClient.SendAsync(request);
@@ -33,7 +33,6 @@ public class SpotifyAccountService : ISpotifyAccountService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var authResult = await JsonSerializer.DeserializeAsync<AuthResult>(responseStream);
 
-        return authResult.access_token;
+        return authResult?.access_token ?? throw new InvalidOperationException("Access token not found in the response");
     }
-
 }

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Dtos.Review;
-using MusicCatalog.Services.Reviews;
 
 namespace MusicCatalog.ViewComponents;
 

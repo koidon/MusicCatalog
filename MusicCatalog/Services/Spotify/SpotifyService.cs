@@ -25,7 +25,7 @@ public class SpotifyService : ISpotifyService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var responseObject = await JsonSerializer.DeserializeAsync<GetPlaylist>(responseStream);
 
-        return responseObject?.tracks?.items.Select(item => new Song
+        return responseObject?.tracks.items.Select(item => new Song
         {
             Id = item.track.id,
             TrackName = item.track.name,
@@ -33,7 +33,7 @@ public class SpotifyService : ISpotifyService
             Artists = string.Join(", ", item.track.artists.Select(artist => artist.name)),
             Popularity = item.track.popularity.ToString(),
             ImageUrl = item.track.album.images[0].url
-        });
+        }) ?? Enumerable.Empty<Song>();
     }
 
     public async Task<Song> GetSongById(string songId, string accessToken)
@@ -46,6 +46,9 @@ public class SpotifyService : ISpotifyService
 
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var responseObject = await JsonSerializer.DeserializeAsync<GetSong>(responseStream);
+
+        if (responseObject is null)
+            return new Song();
 
         var song = new Song
         {

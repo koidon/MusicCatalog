@@ -2,5 +2,5 @@
 
 public interface ISpotifyAccountService
 {
-    Task<string> GetToken(string clientId, string clientSecret);
+    Task<string> GetToken(string? clientId, string? clientSecret);
 }

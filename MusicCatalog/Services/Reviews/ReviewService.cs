@@ -26,8 +26,8 @@ public class ReviewService : IReviewService
     public async Task<CreateReviewDto> CreateReview(CreateReviewDto newReview)
     {
         var review = _mapper.Map<Review>(newReview);
-        review.User = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == GetUserId());
-        //Fixa isak!
+        review.User = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == GetUserId()) ??
+                      throw new InvalidOperationException($"The user with Id '{review.User.Id}' could not be found");
 
         _dbContext.Reviews.Add(review);
         await _dbContext.SaveChangesAsync();
@@ -37,13 +37,10 @@ public class ReviewService : IReviewService
 
     public async Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId)
     {
-
         var dbReviews = await _dbContext.Reviews
             .Include(r => r.User)
             .Where(r => songId.Contains(r.SongId))
             .ToListAsync();
-        //AppUser eller User?
-
 
 
         var reviews = dbReviews.Select(r => _mapper.Map<GetReviewDto>(r)).ToList();
@@ -53,28 +50,18 @@ public class ReviewService : IReviewService
 
     public async Task<List<GetReviewDto>> DeleteReview(int reviewId)
     {
-
-        var reviews = new List<GetReviewDto>();
-
-        try
-        {
-            var dbReview = await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId());
-            if (dbReview is null)
-                throw new Exception($"Character with Id '{reviewId}' not found.");
-
-            _dbContext.Reviews.Remove(dbReview);
-            await _dbContext.SaveChangesAsync();
+        var dbReview =
+            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId()) ??
+            throw new Exception($"Review with Id '{reviewId}' not found.");
 
 
-            reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
-                .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
+        _dbContext.Reviews.Remove(dbReview);
+        await _dbContext.SaveChangesAsync();
 
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return null;
-        }
+
+        var reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
+            .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
+
 
         return reviews;
     }

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Services.Reviews;
 
+namespace MusicCatalog.ViewComponents;
+
 public class SongReviewsViewComponent : ViewComponent
 {
     private readonly IReviewService _reviewService;

@@ -34,7 +34,7 @@ public class HomeController : Controller
     {
         var song = await GetSong(songId);
 
-        ViewBag.Alert = TempData["Alert"];
+        ViewBag.Alert = TempData["Alert"] ?? "";
 
         return View(song);
     }
@@ -66,7 +66,7 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låtarna skulle hämtas");
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låtarna skulle hämtas " + e.Message);
 
             return Enumerable.Empty<Song>();
         }
@@ -86,7 +86,7 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas");
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas " + e.Message);
 
             return new Song();
         }

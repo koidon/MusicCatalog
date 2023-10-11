@@ -34,7 +34,7 @@
                     </li>
                 </ul>
             </div>
-            @if (User.Identity.IsAuthenticated)
+            @if (User.Identity?.IsAuthenticated == true)
             {
                 <div class="card bg-dark mt-3">
                     <div class="card-body">
