@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
-using MusicCatalog.Services.Communities;
-using MusicCatalog.Services.Posts;
+using MusicCatalog.Models;
 using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 
@@ -14,13 +13,13 @@ var serverVersion = new MySqlServerVersion(new Version(10, 6, 12));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, serverVersion));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IReviewService, ReviewService>();
-builder.Services.AddScoped<IPostService, PostService>();
-builder.Services.AddScoped<ICommunityService, CommunityService>();
+/*builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<ICommunityService, CommunityService>();*/
 builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
 {
     c.BaseAddress = new Uri("https://accounts.spotify.com/api/");

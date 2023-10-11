@@ -1,13 +1,11 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MusicCatalog.Data.Configurations;
 using MusicCatalog.Models;
-using MusicCatalog.Dtos.Review;
 
 namespace MusicCatalog.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<AppUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -15,9 +13,12 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Review> Reviews { get; set; } = null!;
-    public DbSet<Comment> Comments { get; set; } = null!;
+    public DbSet<ReviewComment> ReviewComments { get; set; } = null!;
     public DbSet<Community> Communities { get; set; } = null!;
     public DbSet<Post> Posts { get; set; } = null!;
+    public DbSet<AppUser> AppUsers { get; set; } = null!;
+    public DbSet<Vote> Votes { get; set; } = null!;
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -25,9 +26,5 @@ public class ApplicationDbContext : IdentityDbContext
 
         base.OnModelCreating(modelBuilder);
     }
-
-    public DbSet<MusicCatalog.Models.Song> Song { get; set; } = default!;
-
-    public DbSet<MusicCatalog.Dtos.Review.GetReviewDto> GetReviewDto { get; set; } = default!;
- //FRÅGA OM
+    
 }

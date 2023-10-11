@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace MusicCatalog.Models;
+[Index(nameof(UserId), nameof(PostId))]
 
 public class Vote
 {
@@ -7,6 +10,8 @@ public class Vote
     public int UserId { get; set; }
     
     public int PostId { get; set; }
-    
-    public int VoteCount { get; set; }
+
+    public AppUser AppUser { get; set; } = null!;
+
+    public Post Post { get; set; } = null!;
 }

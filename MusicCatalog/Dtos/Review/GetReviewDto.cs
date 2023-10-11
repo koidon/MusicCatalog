@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+using MusicCatalog.Models;
 
 namespace MusicCatalog.Dtos.Review;
 
@@ -16,6 +16,6 @@ public class GetReviewDto
 
     public DateTime UpdatedAt { get; set; }
 
-    public IdentityUser User { get; set; } = null!;
+    public AppUser AppUser { get; set; } = null!;
 
 }

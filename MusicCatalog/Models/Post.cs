@@ -1,28 +1,24 @@
-using Microsoft.AspNetCore.Identity;
-
 namespace MusicCatalog.Models;
 
 public class Post
 {
+    public const int MinContentLength = 3;
+    public const int MaxContentLength = 255;
     public int Id { get; set; }
-
-    public int PostId { get; set; }
 
     public string UserId { get; set; } = null!;
 
-    public string title { get; set; } = null!;
+    public string Title { get; set; } = null!;
 
-    public string content { get; set; } = null!;
-    
-    public int image_id { get; set; }
+    public string Content { get; set; } = null!;
 
-    public int vote_count { get; set; }
+    public int? VoteCount { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
     
-    public IdentityUser User { get; set; } = null!;
-    
-    public ICollection<Post>? Posts { get; set; }
+    public AppUser AppUser { get; set; } = null!;
+
+    public List<Vote> Votes { get; } = new();
 }

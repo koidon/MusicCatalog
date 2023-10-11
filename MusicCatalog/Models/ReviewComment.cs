@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Identity;
-
 namespace MusicCatalog.Models;
 
-public class Comment
+public class ReviewComment
 {
 
     public const int MinContentLength = 3;
@@ -14,7 +12,7 @@ public class Comment
 
     public string UserId { get; set; } = null!;
 
-    public IdentityUser User { get; set; } = null!;
+    public AppUser AppUser { get; set; } = null!;
 
     public string content { get; set; } = null!;
 

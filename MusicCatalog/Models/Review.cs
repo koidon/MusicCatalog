@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Identity;
-
 namespace MusicCatalog.Models;
 
 public class Review
@@ -21,9 +19,9 @@ public class Review
 
     public DateTime UpdatedAt { get; set; }
 
-    public IdentityUser User { get; set; } = null!;
+    public AppUser AppUser { get; set; } = null!;
 
-    public ICollection<Comment>? Comments { get; set; }
+    public ICollection<ReviewComment>? Comments { get; set; }
 
 }
 
