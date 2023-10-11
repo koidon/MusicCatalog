@@ -12,32 +12,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added votes, fixed post and community models">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/CommunityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/CommunityConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/PostConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/PostConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231004110441_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231004110441_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231007224356_AddedSongIdToReview.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231007224356_AddedSongIdToReview.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/ReviewComment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/GetSong.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/GetSong.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Vote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Vote.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +52,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -226,7 +223,7 @@
       <workItem from="1696843341905" duration="4952000" />
       <workItem from="1696927896291" duration="5086000" />
       <workItem from="1696940299164" duration="3603000" />
-      <workItem from="1697014923683" duration="11577000" />
+      <workItem from="1697014923683" duration="14196000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -275,7 +272,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1696880931067</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Added votes, fixed post and community models">
+      <option name="closed" value="true" />
+      <created>1697029019348</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1697029019348</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +318,8 @@
     <MESSAGE value="Ability to create reviews in partial view. Added Dtos for and model validation. Added automapper" />
     <MESSAGE value="Added release view. Added ability to create reviews in release view. Added Dto for review. Added automapper for model mapping between entity model and dto. Added model validation." />
     <MESSAGE value="Starting community and post services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting community and post services" />
+    <MESSAGE value="Added votes, fixed post and community models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added votes, fixed post and community models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

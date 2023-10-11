@@ -1,4 +1,5 @@
-/*using System.Security.Claims;
+/*
+using System.Security.Claims;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
@@ -81,4 +82,5 @@ public class CommunityService : ICommunityService
 
         return null;
     }
-}*/
+}
+*/

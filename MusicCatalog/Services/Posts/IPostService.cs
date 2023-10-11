@@ -6,9 +6,9 @@ namespace MusicCatalog.Services.Posts;
 public class IPostService
 {
     /*Task<CreatePostDto> CreatePost(CreatePostDto post);
-    Review GetPost(int id);
+    Task<GetPostDto> GetPost(int id);
 
-    Task<IEnumerable<GetPostDto>> GetPostsById(string songId);
+    Task<IEnumerable<GetPostDto>> GetPostsById(string communityId);
     
-    Task<List<GetPostDto>> DeletePostw(int postId);*/
+    Task<List<GetPostDto>> DeletePost(int postId);*/
 }

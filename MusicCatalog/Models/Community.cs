@@ -14,4 +14,6 @@ public class Community
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
+
+    public ICollection<Post> Posts { get; set; } = null!;
 }

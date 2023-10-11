@@ -13,6 +13,10 @@ public class Post
     public string Content { get; set; } = null!;
 
     public int? VoteCount { get; set; }
+    
+    public int CommunityId { get; set; }
+
+    public Community Community { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
