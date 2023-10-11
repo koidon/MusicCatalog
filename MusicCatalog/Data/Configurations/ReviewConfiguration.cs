@@ -14,5 +14,4 @@ public class ReviewConfiguration : IEntityTypeConfiguration<Review>
             .HasDefaultValueSql("curdate()");
         builder.Property(b => b.UpdatedAt)
             .HasDefaultValueSql("curdate()");
-    }
-}
+    } }

@@ -27,7 +27,7 @@ public class PostService : IPostService
     public async Task<CreatePostDto> CreatePost(CreatePostDto newPost)
     {
         var post = _mapper.Map<Post>(newPost);
-        post.AppUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
+        post.User = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
 
         _dbContext.Posts.Add(post);
         await _dbContext.SaveChangesAsync();

@@ -1,6 +1,6 @@
 @model MusicCatalog.Dtos.Review.GetReviewDto
 
-<form method="post" asp-controller="Home" asp-action="DeleteReview">
+<form method="post" asp-controller="Review" asp-action="DeleteReview">
     <input type="hidden" name="songId" value="@Model.SongId'">
     <input type="hidden" name="reviewId" value="@Model.Id">
     <button type="submit" class="btn btn-danger">Ta bort inlägg</button>

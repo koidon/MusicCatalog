@@ -26,7 +26,7 @@ public class ReviewService : IReviewService
     public async Task<CreateReviewDto> CreateReview(CreateReviewDto newReview)
     {
         var review = _mapper.Map<Review>(newReview);
-        review.AppUser = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == GetUserId());
+        review.User = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == GetUserId());
         //Fixa isak!
 
         _dbContext.Reviews.Add(review);
@@ -39,7 +39,7 @@ public class ReviewService : IReviewService
     {
 
         var dbReviews = await _dbContext.Reviews
-            .Include(r => r.AppUser)
+            .Include(r => r.User)
             .Where(r => songId.Contains(r.SongId))
             .ToListAsync();
         //AppUser eller User?
@@ -58,7 +58,7 @@ public class ReviewService : IReviewService
 
         try
         {
-            var dbReview = await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.AppUser!.Id == GetUserId());
+            var dbReview = await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId());
             if (dbReview is null)
                 throw new Exception($"Character with Id '{reviewId}' not found.");
 
@@ -66,7 +66,7 @@ public class ReviewService : IReviewService
             await _dbContext.SaveChangesAsync();
 
 
-            reviews = await _dbContext.Reviews.Where(r => r.AppUser!.Id == GetUserId())
+            reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
                 .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
 
         }

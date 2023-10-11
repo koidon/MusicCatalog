@@ -16,6 +16,6 @@ public class GetReviewDto
 
     public DateTime UpdatedAt { get; set; }
 
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
 
 }

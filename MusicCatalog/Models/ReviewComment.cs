@@ -12,7 +12,7 @@ public class ReviewComment
 
     public string UserId { get; set; } = null!;
 
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
 
     public string content { get; set; } = null!;
 

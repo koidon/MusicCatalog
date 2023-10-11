@@ -11,7 +11,7 @@ public class Vote
     
     public int PostId { get; set; }
 
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
 
     public Post Post { get; set; } = null!;
 }

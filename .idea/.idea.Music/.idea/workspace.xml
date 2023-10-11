@@ -14,26 +14,26 @@
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added votes, fixed post and community models">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_15_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_15_49__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_17_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_17_42__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231004110441_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231004110441_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005205818_ReviewsAndComments.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005214323_AddedMaxLengthToContent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005215640_AddedDateToReviews.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231005220123_AddedDateToUpdatedAt.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231007224356_AddedSongIdToReview.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/20231007224356_AddedSongIdToReview.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/ReviewConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/ReviewConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/ReviewComment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/ReviewComment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Vote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Vote.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/CreateReview/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/CreateReview/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/DeleteReview/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/DeleteReview/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,33 +70,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature-community&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature-community",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver",
+      "mariadb"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\pette\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\pette\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\pette\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\Isak\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: IIS Express">
     <configuration name="MusicCatalog: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
@@ -224,6 +224,7 @@
       <workItem from="1696927896291" duration="5086000" />
       <workItem from="1696940299164" duration="3603000" />
       <workItem from="1697014923683" duration="14196000" />
+      <workItem from="1697032216019" duration="1698000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -326,74 +327,107 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
-          <line>35</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="43" containingFunctionPresentation="Method 'CreateReview'" />
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
-          <line>39</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="39" containingFunctionPresentation="Method 'Release'">
+          <line>36</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="36" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="1279" />
+              <option value="942" />
             </startOffsets>
             <endOffsets>
-              <option value="1312" />
+              <option value="957" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
-          <line>42</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="42" containingFunctionPresentation="Method 'Release'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="37" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="1323" />
+              <option value="970" />
             </startOffsets>
             <endOffsets>
-              <option value="1341" />
+              <option value="1076" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/ViewComponents/SongReviewsViewComponent.cs</url>
-          <line>9</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\ViewComponents\SongReviewsViewComponent.cs" initialLine="9" containingFunctionPresentation="Constructor 'SongReviewsViewComponent'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\ReviewController.cs" initialLine="30" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="259" />
+              <option value="739" />
             </startOffsets>
             <endOffsets>
-              <option value="290" />
+              <option value="781" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="45" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/ViewComponents/SongReviewsViewComponent.cs</url>
-          <line>14</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\ViewComponents\SongReviewsViewComponent.cs" initialLine="14" containingFunctionPresentation="Method 'InvokeAsync'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="28" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="383" />
+              <option value="926" />
             </startOffsets>
             <endOffsets>
-              <option value="441" />
+              <option value="1012" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="46" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/ViewComponents/SongReviewsViewComponent.cs</url>
-          <line>15</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\ViewComponents\SongReviewsViewComponent.cs" initialLine="15" containingFunctionPresentation="Method 'InvokeAsync'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="31" containingFunctionPresentation="Method 'CreateReview'">
             <startOffsets>
-              <option value="450" />
+              <option value="1043" />
             </startOffsets>
             <endOffsets>
-              <option value="471" />
+              <option value="1074" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="32" containingFunctionPresentation="Method 'CreateReview'">
+            <startOffsets>
+              <option value="1083" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1119" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="34" containingFunctionPresentation="Method 'CreateReview'">
+            <startOffsets>
+              <option value="1129" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1146" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="22" containingFunctionPresentation="Method 'GetUserId'">
+            <startOffsets>
+              <option value="687" />
+            </startOffsets>
+            <endOffsets>
+              <option value="777" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

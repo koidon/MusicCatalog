@@ -9,7 +9,7 @@
 <hr />
 <div>
     <div>
-        <form asp-action="CreateReview" asp-controller="Home" method="post" id="createReviewForm">
+        <form asp-action="CreateReview" asp-controller="Review" method="post">
             <input type="hidden" asp-for="SongId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -24,10 +24,8 @@
     </div>
 </div>
 
-
-<script>
-$(document).ready(function () {
-// Initialize jQuery Unobtrusive Validation
-$.validator.unobtrusive.parse("#createReviewForm");
-});
-</script>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

@@ -9,7 +9,7 @@ public class Community
     public int UserId { get; set; }
 
     public string Name { get; set; } = null!;
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
     
     public DateTime CreatedAt { get; set; }
 

@@ -19,7 +19,7 @@ public class Review
 
     public DateTime UpdatedAt { get; set; }
 
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
 
     public ICollection<ReviewComment>? Comments { get; set; }
 

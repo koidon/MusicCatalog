@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Dtos.Review;
-using MusicCatalog.Models;
+using MusicCatalog.Enums;
+using MusicCatalog.Services;
 using MusicCatalog.Services.Reviews;
 
 namespace MusicCatalog.Controllers;
@@ -11,13 +12,55 @@ namespace MusicCatalog.Controllers;
 public class ReviewController : Controller
 {
     private readonly IReviewService _reviewService;
-    private readonly UserManager<IdentityUser> _userManager;
 
-    public ReviewController(IReviewService reviewService, UserManager<IdentityUser> userManager)
+    public ReviewController(IReviewService reviewService)
     {
         _reviewService = reviewService;
-        _userManager = userManager;
     }
+
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> CreateReview(CreateReviewDto review)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                ViewComponent("CreateReview");
+
+            await _reviewService.CreateReview(review);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Recensionen har skapats");
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle skapas");
+        }
+
+        return RedirectToAction("Release", "Home", new { songId = review.SongId });
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> DeleteReview(int reviewId, string songId)
+    {
+
+        try
+        {
+            await _reviewService.DeleteReview(reviewId);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Recensionen har tagits bort");
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle tas bort");
+        }
+
+        return RedirectToAction("Release", "Home", new { songId });
+    }
+
 
     /*[HttpGet]
     [Authorize]

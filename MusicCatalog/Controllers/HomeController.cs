@@ -1,11 +1,8 @@
 ﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MusicCatalog.Dtos.Review;
 using MusicCatalog.Enums;
 using MusicCatalog.Models;
 using MusicCatalog.Services;
-using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 
 namespace MusicCatalog.Controllers;
@@ -15,17 +12,15 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly ISpotifyAccountService _spotifyAccountService;
     private readonly ISpotifyService _spotifyService;
-    private readonly IReviewService _reviewService;
     private readonly IConfiguration _configuration;
 
     public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService,
-        IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
+        IConfiguration configuration, ISpotifyService spotifyService)
     {
         _logger = logger;
         _spotifyAccountService = spotifyAccountService;
         _configuration = configuration;
         _spotifyService = spotifyService;
-        _reviewService = reviewService;
     }
 
     public async Task<IActionResult> Index()
@@ -39,50 +34,10 @@ public class HomeController : Controller
     {
         var song = await GetSong(songId);
 
+        ViewBag.Alert = TempData["Alert"];
 
         return View(song);
     }
-
-    [HttpPost]
-    [Authorize]
-    public async Task<IActionResult> CreateReview(CreateReviewDto review)
-    {
-        try
-        {
-            if (!ModelState.IsValid)
-                ViewComponent("CreateReview");
-
-
-            await _reviewService.CreateReview(review);
-        }
-        catch (Exception e)
-        {
-            Debug.Write(e);
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle skapas");
-        }
-
-        return RedirectToAction("Release", new { songId = review.SongId });
-    }
-
-    [HttpPost]
-    [Authorize]
-    public async Task<IActionResult> DeleteReview(int reviewId, string songId)
-    {
-        var song = await GetSong(songId);
-
-        var response = await _reviewService.DeleteReview(reviewId);
-        if (response is null)
-        {
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle tas bort");
-        }
-        else
-        {
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Success, "Recensionen har tagits bort");
-        }
-
-        return View("Release", song);
-    }
-
 
     public IActionResult Privacy()
     {
@@ -111,6 +66,7 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låtarna skulle hämtas");
 
             return Enumerable.Empty<Song>();
         }
@@ -130,8 +86,9 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
+            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas");
 
-            return null;
+            return new Song();
         }
     }
 }

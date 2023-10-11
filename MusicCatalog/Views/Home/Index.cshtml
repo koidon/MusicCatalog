@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+@Html.Raw(ViewBag.Alert)
 
 <div class="row">
     @foreach (var item in Model)

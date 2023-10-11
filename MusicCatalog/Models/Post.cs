@@ -22,7 +22,7 @@ public class Post
 
     public DateTime UpdatedAt { get; set; }
     
-    public AppUser AppUser { get; set; } = null!;
+    public AppUser User { get; set; } = null!;
 
     public List<Vote> Votes { get; } = new();
 }
