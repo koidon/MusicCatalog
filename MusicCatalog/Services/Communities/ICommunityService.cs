@@ -1,14 +1,13 @@
 using MusicCatalog.Dtos.Community;
-using MusicCatalog.Models;
 
 namespace MusicCatalog.Services.Communities;
 
-public class ICommunityService
+public interface ICommunityService
 {
-    /*Task<CreateCommunityDto> CreateCommunity(CreateCommunityDto community);
-    Community GetCommunity(int id);
+    Task<CreateCommunityDto> CreateCommunity(CreateCommunityDto community);
+    Task<GetCommunityDto> GetCommunity(int id);
 
-    Task<IEnumerable<GetCommunityDto>> GetCommunitiesById();
+    Task<IEnumerable<GetCommunityDto>> GetCommunities();
 
-    Task<List<GetCommunityDto>> DeleteCommunity(int communityId);*/
+    Task<List<GetCommunityDto>> DeleteCommunity(int communityId);
 }

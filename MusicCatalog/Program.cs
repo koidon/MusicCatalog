@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
 using MusicCatalog.Models;
+using MusicCatalog.Services.Communities;
 using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 
@@ -22,8 +23,8 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 });
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IReviewService, ReviewService>();
-/*builder.Services.AddScoped<IPostService, PostService>();
-builder.Services.AddScoped<ICommunityService, CommunityService>();*/
+/*builder.Services.AddScoped<IPostService, PostService>();*/
+builder.Services.AddScoped<ICommunityService, CommunityService>();
 builder.Services.AddHttpClient<ISpotifyAccountService, SpotifyAccountService>(c =>
 {
     c.BaseAddress = new Uri("https://accounts.spotify.com/api/");

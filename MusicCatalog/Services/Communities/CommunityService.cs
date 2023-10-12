@@ -1,4 +1,3 @@
-/*
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -35,12 +34,9 @@ public class CommunityService : ICommunityService
         return newCommunity;
     }
 
-    public async Task<IEnumerable<GetCommunityDto>> GetCommunitiesById()
+    public async Task<IEnumerable<GetCommunityDto>> GetCommunities()
     {
-        var dbCommunities = await _dbContext.Communities
-            .Include(c => c.User)    
-            .Where(c => )
-            .ToListAsync();
+        var dbCommunities = await _dbContext.Communities.ToListAsync();
 
         var communities = dbCommunities.Select(c => _mapper.Map<GetCommunityDto>(c)).ToList();
 
@@ -49,38 +45,25 @@ public class CommunityService : ICommunityService
 
     public async Task<List<GetCommunityDto>> DeleteCommunity(int communityId)
     {
-        var communities = new List<GetCommunityDto>();
+        var dbCommunity =
+            await _dbContext.Communities.FirstOrDefaultAsync(c => c.Id == communityId && c.User.Id == GetUserId()) ??
+            throw new Exception($"Community with Id '{communityId}' not found.");
 
-        try
-        {
-            var dbCommunity = await _dbContext.Communities.FirstOrDefaultAsync(c => c.Id == communityId && c.User!.Id == GetUserId());
-            if (dbCommunity is null)
-                throw new Exception($"Community with Id '{communityId}' not found.");
+        _dbContext.Communities.Remove(dbCommunity);
+        await _dbContext.SaveChangesAsync();
 
-            _dbContext.Communities.Remove(dbCommunity);
-            await _dbContext.SaveChangesAsync();
-
-            communities = await _dbContext.Communities.Where(c => c.User!.Id == GetUserId())
-                .Select(c => _mapper.Map<GetCommunityDto>(c)).ToListAsync();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return null;
-        }
+        var communities = await _dbContext.Communities.Where(c => c.User.Id == GetUserId())
+            .Select(c => _mapper.Map<GetCommunityDto>(c)).ToListAsync();
 
         return communities;
     }
-
-
-    public Community GetCommunity(int communityId)
+    
+    public async Task<GetCommunityDto> GetCommunity(int communityId)
     {
-        if (_dbContext.Communities.Find(communityId) is Community community)
-        {
-            return community;
-        }
+        var dbCommunity = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == communityId);
 
-        return null;
+        if (dbCommunity is null) return new GetCommunityDto();
+        var communityDto = _mapper.Map<GetCommunityDto>(dbCommunity);
+        return communityDto;
     }
 }
-*/

@@ -15,6 +15,6 @@ public class AutoMapperProfile : Profile
         CreateMap<CreatePostDto,Post>();
         CreateMap<Post, GetPostDto>();
         CreateMap<CreateCommunityDto, Community>();
-        CreateMap<Community, CreateCommunityDto>();
+        CreateMap<Community, GetCommunityDto>();
     }
 }

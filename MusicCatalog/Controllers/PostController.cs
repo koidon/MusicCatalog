@@ -1,7 +1,8 @@
-/*using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MusicCatalog.Dtos.Community;
 using MusicCatalog.Dtos.Post;
 using MusicCatalog.Enums;
 using MusicCatalog.Services;
@@ -9,16 +10,17 @@ using MusicCatalog.Services.Posts;
 
 namespace MusicCatalog.Controllers;
 
-public class PostController
+public class PostController : Controller
 {
     private readonly IPostService _postService;
     private readonly UserManager<IdentityUser> _userManager;
 
-    public PostController( IPostService postService, UserManager<IdentityUser> userManager)
+    public PostController(IPostService postService, UserManager<IdentityUser> userManager)
     {
         _postService = postService;
         _userManager = userManager;
     }
+
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> CreatePost(CreatePostDto post)
@@ -26,36 +28,40 @@ public class PostController
         try
         {
             if (!ModelState.IsValid)
-                ViewComponent("CreateReview");
-
+            {
+                // Redirect till CreatePost vyn
+                return View();
+            }
 
             await _postService.CreatePost(post);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Inlägget har skapats");
         }
         catch (Exception e)
         {
             Debug.Write(e);
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle skapas");
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle skapas");
         }
 
-        return RedirectToAction("Release");
+        return RedirectToAction("");
     }
 
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> DeletePost(int postId)
     {
-        var post = await GetPost(postId);
-
-        var response = await _postService.DeletePost(postId);
-        if (response is null)
+        try
         {
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle tas bort");
+            await _postService.DeletePost(postId);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Inlägget har tagits bort");
         }
-        else
+        catch (Exception e)
         {
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Success, "Inlägget har tagits bort");
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle tas bort");
         }
 
-        return View("Release");
+        return RedirectToAction("");
     }
-}*/
+}
