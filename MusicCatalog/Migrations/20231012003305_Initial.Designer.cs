@@ -11,8 +11,8 @@ using MusicCatalog.Data;
 namespace MusicCatalog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231011141836_ChangedAppUserToUser")]
-    partial class ChangedAppUserToUser
+    [Migration("20231012003305_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,16 +239,13 @@ namespace MusicCatalog.Migrations
                         .HasColumnType("datetime(6)")
                         .HasDefaultValueSql("curdate()");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Communities");
                 });
@@ -339,6 +336,10 @@ namespace MusicCatalog.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -351,10 +352,6 @@ namespace MusicCatalog.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
-
-                    b.Property<string>("content")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -374,18 +371,13 @@ namespace MusicCatalog.Migrations
                     b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PostId");
-
-                    b.HasIndex("UserId1");
 
                     b.HasIndex("UserId", "PostId");
 
@@ -447,7 +439,7 @@ namespace MusicCatalog.Migrations
                 {
                     b.HasOne("MusicCatalog.Models.AppUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -513,7 +505,7 @@ namespace MusicCatalog.Migrations
 
                     b.HasOne("MusicCatalog.Models.AppUser", "User")
                         .WithMany("Votes")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

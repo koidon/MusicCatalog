@@ -1,48 +1,75 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MusicCatalog.Models;
 [NotMapped]
 public class GetPlaylist
 {
-    public Tracks tracks { get; set; }
+
+    [JsonPropertyName("tracks")]
+    public Tracks? Tracks { get; set; }
 }
 
 public class Tracks
 {
-    public Items[] items { get; set; }
+    [JsonPropertyName("items")]
+    public Items[]? Items { get; set; }
 }
 
 public class Items
 {
-    public Track track { get; set; }
+    [JsonPropertyName("track")]
+    public Track? Track { get; set; }
 }
 
 public class Track
 {
-    public Album album { get; set; }
-    public Artists[] artists { get; set; }
-    public string id { get; set; }
-    public string name { get; set; }
-    public int popularity { get; set; }
+    [JsonPropertyName("album")]
+    public Album? Album { get; set; }
+
+    [JsonPropertyName("artists")]
+    public Artists[]? Artists { get; set; }
+
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
+
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+
+    [JsonPropertyName("popularity")]
+    public required int Popularity { get; set; }
 }
 
 public partial class Album
 {
-    public string id { get; set; }
-    public Images[] images { get; set; }
-    public string name { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("images")]
+    public Images[]? Images { get; set; }
+
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
 }
 
 public class Images
 {
-    public string url { get; set; }
-    public int height { get; set; }
-    public int width { get; set; }
+    [JsonPropertyName("url")]
+    public required string Url { get; set; }
+
+    [JsonPropertyName("height")]
+    public int Height { get; set; }
+
+    [JsonPropertyName("width")]
+    public int Width { get; set; }
 }
 
 public partial class Artists
 {
-    public string id { get; set; }
-    public string name { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
 }
 

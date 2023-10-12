@@ -66,7 +66,7 @@ public class ReviewService : IReviewService
         return reviews;
     }
 
-    public Review GetReview(int reviewId)
+   /* public Review GetReview(int reviewId)
     {
         if (_dbContext.Reviews.Find(reviewId) is Review review)
         {
@@ -74,7 +74,7 @@ public class ReviewService : IReviewService
         }
 
         return null;
-    }
+    } */
 
     public void UpsertReview(Review review)
     {

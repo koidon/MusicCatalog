@@ -5,8 +5,8 @@ public class Community
     public const int MinContentLength = 3;
     public const int MaxContentLength = 55;
     public int Id { get; set; }
-    
-    public int UserId { get; set; }
+
+    public string UserId { get; set; } = null!;
 
     public string Name { get; set; } = null!;
     public AppUser User { get; set; } = null!;

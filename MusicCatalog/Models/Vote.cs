@@ -6,8 +6,8 @@ namespace MusicCatalog.Models;
 public class Vote
 {
     public int Id { get; set; }
-    
-    public int UserId { get; set; }
+
+    public string UserId { get; set; } = null!;
     
     public int PostId { get; set; }
 

@@ -1,0 +1,45 @@
+Index: MusicCatalog/Dtos/Spotify/PlaylistCookie.cs
+===================================================================
+diff --git a/MusicCatalog/Dtos/Spotify/PlaylistCookie.cs b/MusicCatalog/Dtos/Spotify/PlaylistCookie.cs
+deleted file mode 100644
+--- a/MusicCatalog/Dtos/Spotify/PlaylistCookie.cs	(revision 9ce911293d23ace56f5bab23a7df519580b41bd2)
++++ /dev/null	(revision 9ce911293d23ace56f5bab23a7df519580b41bd2)
+@@ -1,9 +0,0 @@
+-using MusicCatalog.Models;
+-
+-namespace MusicCatalog.Dtos.Spotify;
+-
+-[Serializable]
+-public class PlaylistCookie
+-{
+-    public List<Song> Songs { get; set; }
+-}
+\ No newline at end of file
+Index: MusicCatalog/Services/Reviews/ReviewService.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Security.Claims;\r\nusing AutoMapper;\r\nusing Microsoft.EntityFrameworkCore;\r\nusing MusicCatalog.Data;\r\nusing MusicCatalog.Dtos.Review;\r\nusing MusicCatalog.Models;\r\n\r\nnamespace MusicCatalog.Services.Reviews;\r\n\r\npublic class ReviewService : IReviewService\r\n{\r\n    private readonly ApplicationDbContext _dbContext;\r\n    private readonly IMapper _mapper;\r\n    private readonly IHttpContextAccessor _httpContextAccessor;\r\n\r\n    public ReviewService(ApplicationDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)\r\n    {\r\n        _httpContextAccessor = httpContextAccessor;\r\n        _dbContext = dbContext;\r\n        _mapper = mapper;\r\n    }\r\n\r\n    private string GetUserId() => _httpContextAccessor.HttpContext!.User\r\n        .FindFirstValue(ClaimTypes.NameIdentifier)!;\r\n\r\n    public async Task<CreateReviewDto> CreateReview(CreateReviewDto newReview)\r\n    {\r\n        var review = _mapper.Map<Review>(newReview);\r\n        review.User = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == GetUserId()) ??\r\n                      throw new InvalidOperationException($\"The user with Id '{review.User.Id}' could not be found\");\r\n\r\n        _dbContext.Reviews.Add(review);\r\n        await _dbContext.SaveChangesAsync();\r\n\r\n        return newReview;\r\n    }\r\n\r\n    public async Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId)\r\n    {\r\n        var dbReviews = await _dbContext.Reviews\r\n            .Include(r => r.User)\r\n            .Where(r => songId.Contains(r.SongId))\r\n            .ToListAsync();\r\n\r\n\r\n        var reviews = dbReviews.Select(r => _mapper.Map<GetReviewDto>(r)).ToList();\r\n\r\n        return reviews;\r\n    }\r\n\r\n    public async Task<List<GetReviewDto>> DeleteReview(int reviewId)\r\n    {\r\n        var dbReview =\r\n            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId()) ??\r\n            throw new Exception($\"Review with Id '{reviewId}' not found.\");\r\n\r\n\r\n        _dbContext.Reviews.Remove(dbReview);\r\n        await _dbContext.SaveChangesAsync();\r\n\r\n\r\n        var reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())\r\n            .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();\r\n\r\n\r\n        return reviews;\r\n    }\r\n\r\n    public Review GetReview(int reviewId)\r\n    {\r\n        if (_dbContext.Reviews.Find(reviewId) is Review review)\r\n        {\r\n            return review;\r\n        }\r\n\r\n        return null;\r\n    }\r\n\r\n    public void UpsertReview(Review review)\r\n    {\r\n        var isNewlyCreated = _dbContext.Reviews.Find(review.Id) is not Review;\r\n\r\n        if (isNewlyCreated)\r\n        {\r\n            _dbContext.Reviews.Add(review);\r\n        }\r\n        else\r\n        {\r\n            _dbContext.Reviews.Update(review);\r\n        }\r\n\r\n        _dbContext.SaveChanges();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MusicCatalog/Services/Reviews/ReviewService.cs b/MusicCatalog/Services/Reviews/ReviewService.cs
+--- a/MusicCatalog/Services/Reviews/ReviewService.cs	(revision 9ce911293d23ace56f5bab23a7df519580b41bd2)
++++ b/MusicCatalog/Services/Reviews/ReviewService.cs	(date 1697062042229)
+@@ -51,7 +51,7 @@
+     public async Task<List<GetReviewDto>> DeleteReview(int reviewId)
+     {
+         var dbReview =
+-            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId()) ??
++            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User.Id == GetUserId()) ??
+             throw new Exception($"Review with Id '{reviewId}' not found.");
+ 
+ 
+@@ -59,7 +59,7 @@
+         await _dbContext.SaveChangesAsync();
+ 
+ 
+-        var reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
++        var reviews = await _dbContext.Reviews.Where(r => r.User.Id == GetUserId())
+             .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
+ 
+ 

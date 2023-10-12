@@ -38,7 +38,11 @@
             {
                 <div class="card bg-dark mt-3">
                     <div class="card-body">
-                        @await Component.InvokeAsync("CreateReview", new CreateReviewDto { SongId = Model.Id })
+                        @if (Model.Id is not null)
+                        {
+                            @await Component.InvokeAsync("CreateReview", new CreateReviewDto { SongId = Model.Id})
+                        }
+
                     </div>
                 </div>
             }

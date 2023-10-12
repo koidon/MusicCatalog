@@ -6,7 +6,7 @@ namespace MusicCatalog.Services.Reviews;
 public interface IReviewService
 {
     Task<CreateReviewDto> CreateReview(CreateReviewDto review);
-    Review GetReview(int id);
+    //Review GetReview(int id);
 
     Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId);
 

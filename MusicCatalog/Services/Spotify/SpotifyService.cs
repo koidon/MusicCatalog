@@ -25,14 +25,16 @@ public class SpotifyService : ISpotifyService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var responseObject = await JsonSerializer.DeserializeAsync<GetPlaylist>(responseStream);
 
-        return responseObject?.tracks.items.Select(item => new Song
+
+
+        return responseObject?.Tracks?.Items?.Select(item => new Song
         {
-            Id = item.track.id,
-            TrackName = item.track.name,
-            AlbumName = item.track.album.name,
-            Artists = string.Join(", ", item.track.artists.Select(artist => artist.name)),
-            Popularity = item.track.popularity.ToString(),
-            ImageUrl = item.track.album.images[0].url
+            Id = item.Track?.Id,
+            TrackName = item.Track?.Name ?? "",
+            AlbumName = item.Track?.Album?.Name ?? "",
+            Artists = string.Join(", ", item.Track?.Artists?.Select(artist => artist.Name) ?? Enumerable.Empty<string>()),
+            Popularity = item.Track?.Popularity.ToString() ?? "",
+            ImageUrl = item.Track?.Album?.Images?[0].Url ?? ""
         }) ?? Enumerable.Empty<Song>();
     }
 
@@ -47,17 +49,14 @@ public class SpotifyService : ISpotifyService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var responseObject = await JsonSerializer.DeserializeAsync<GetSong>(responseStream);
 
-        if (responseObject is null)
-            return new Song();
-
         var song = new Song
         {
-            Id = responseObject.id,
-            TrackName = responseObject.name,
-            AlbumName = responseObject.album.name,
-            Artists = string.Join(", ", responseObject.artists.Select(artist => artist.name)),
-            Popularity = responseObject.popularity.ToString(),
-            ImageUrl = responseObject.album.images[0].url
+            Id = responseObject?.Id ?? "",
+            TrackName = responseObject?.Name ?? "",
+            AlbumName = responseObject?.Album?.Name ?? "",
+            Artists = string.Join(", ", responseObject?.Artists?.Select(artist => artist.Name) ?? Enumerable.Empty<string>()),
+            Popularity = responseObject?.Popularity.ToString() ?? "",
+            ImageUrl = responseObject?.Album?.Images?[0].Url ?? ""
         };
 
         return song;

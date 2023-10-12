@@ -33,6 +33,6 @@ public class SpotifyAccountService : ISpotifyAccountService
         await using var responseStream = await response.Content.ReadAsStreamAsync();
         var authResult = await JsonSerializer.DeserializeAsync<AuthResult>(responseStream);
 
-        return authResult?.access_token ?? throw new InvalidOperationException("Access token not found in the response");
+        return authResult?.AccessToken ?? throw new InvalidOperationException("Access token not found in the response");
     }
 }

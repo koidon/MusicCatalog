@@ -1,83 +1,155 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MusicCatalog.Models;
 [NotMapped]
 
 public class GetSong
-{
-    public Album album { get; set; }
-    public Artists[] artists { get; set; }
-    public object[] available_markets { get; set; }
-    public int disc_number { get; set; }
-    public int duration_ms { get; set; }
-    public External_ids external_ids { get; set; }
-    public External_urls external_urls { get; set; }
-    public string href { get; set; }
-    public string id { get; set; }
-    public string name { get; set; }
-    public int popularity { get; set; }
-    public object preview_url { get; set; }
-    public int track_number { get; set; }
-    public string type { get; set; }
-    public string uri { get; set; }
-    public bool is_local { get; set; }
-}
+ {
+        [JsonPropertyName("album")]
+        public Album? Album { get; set; }
 
-public partial class Album
-{
-    public string album_type { get; set; }
-    public int total_tracks { get; set; }
-    public object[] available_markets { get; set; }
-    public External_urls1 external_urls { get; set; }
-    public string href { get; set; }
-    public string release_date { get; set; }
-    public string release_date_precision { get; set; }
-    public string type { get; set; }
-    public string uri { get; set; }
-    public Artists1[] artists { get; set; }
-}
+        [JsonPropertyName("artists")]
+        public Artists[]? Artists { get; set; }
 
-public class External_urls1
-{
-    public string spotify { get; set; }
-}
+        [JsonPropertyName("available_markets")]
+        public object[]? AvailableMarkets { get; set; }
 
+        [JsonPropertyName("disc_number")]
+        public int DiscNumber { get; set; }
 
+        [JsonPropertyName("duration_ms")]
+        public int DurationMs { get; set; }
 
-public class Artists1
-{
-    public External_urls2 external_urls { get; set; }
-    public string href { get; set; }
-    public string id { get; set; }
-    public string name { get; set; }
-    public string type { get; set; }
-    public string uri { get; set; }
-}
+        [JsonPropertyName("external_ids")]
+        public ExternalIds? ExternalIds { get; set; }
 
-public class External_urls2
-{
-    public string spotify { get; set; }
-}
+        [JsonPropertyName("external_urls")]
+        public ExternalUrls? ExternalUrls { get; set; }
 
-public partial class Artists
-{
-    public External_urls3 external_urls { get; set; }
-    public string href { get; set; }
-    public string type { get; set; }
-    public string uri { get; set; }
-}
+        [JsonPropertyName("href")]
+        public string? Href { get; set; }
 
-public class External_urls3
-{
-    public string spotify { get; set; }
-}
+        [JsonPropertyName("id")]
+        public required string Id { get; set; }
 
-public class External_ids
-{
-    public string isrc { get; set; }
-}
+        [JsonPropertyName("name")]
+        public required string Name { get; set; }
 
-public class External_urls
-{
-    public string spotify { get; set; }
-}
+        [JsonPropertyName("popularity")]
+        public int Popularity { get; set; }
+
+        [JsonPropertyName("preview_url")]
+        public object? PreviewUrl { get; set; }
+
+        [JsonPropertyName("track_number")]
+        public int TrackNumber { get; set; }
+
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        [JsonPropertyName("uri")]
+        public string? Uri { get; set; }
+
+        [JsonPropertyName("is_local")]
+        public bool IsLocal { get; set; }
+    }
+
+    public partial class Album
+    {
+        [JsonPropertyName("album_type")]
+        public string? AlbumType { get; set; }
+
+        [JsonPropertyName("total_tracks")]
+        public int TotalTracks { get; set; }
+
+        [JsonPropertyName("available_markets")]
+        public object[]? AvailableMarkets { get; set; }
+
+        [JsonPropertyName("external_urls")]
+        public ExternalUrls1? ExternalUrls { get; set; }
+
+        [JsonPropertyName("href")]
+        public string? Href { get; set; }
+
+        [JsonPropertyName("release_date")]
+        public string? ReleaseDate { get; set; }
+
+        [JsonPropertyName("release_date_precision")]
+        public string? ReleaseDatePrecision { get; set; }
+
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        [JsonPropertyName("uri")]
+        public string? Uri { get; set; }
+
+        [JsonPropertyName("artists")]
+        public Artists1[]? Artists { get; set; }
+    }
+
+    public class ExternalUrls1
+    {
+        [JsonPropertyName("spotify")]
+        public string? Spotify { get; set; }
+    }
+
+    public class Artists1
+    {
+        [JsonPropertyName("external_urls")]
+        public ExternalUrls2? ExternalUrls { get; set; }
+
+        [JsonPropertyName("href")]
+        public string? Href { get; set; }
+
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        [JsonPropertyName("uri")]
+        public string? Uri { get; set; }
+    }
+
+    public class ExternalUrls2
+    {
+        [JsonPropertyName("spotify")]
+        public string? Spotify { get; set; }
+    }
+
+    public partial class Artists
+    {
+        [JsonPropertyName("external_urls")]
+        public ExternalUrls3? ExternalUrls { get; set; }
+
+        [JsonPropertyName("href")]
+        public string? Href { get; set; }
+
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        [JsonPropertyName("uri")]
+        public string? Uri { get; set; }
+    }
+
+    public class ExternalUrls3
+    {
+        [JsonPropertyName("spotify")]
+        public string? Spotify { get; set; }
+    }
+
+    public class ExternalIds
+    {
+        [JsonPropertyName("isrc")]
+        public string? Isrc { get; set; }
+    }
+
+    public class ExternalUrls
+    {
+        [JsonPropertyName("spotify")]
+        public string? Spotify { get; set; }
+    }
