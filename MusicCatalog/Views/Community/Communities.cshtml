@@ -1,0 +1,18 @@
+@model IEnumerable<MusicCatalog.Dtos.Community.GetCommunityDto>
+
+@{
+    ViewData["Title"] = "Communities";
+}
+
+@Html.Raw(ViewBag.Alert)
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card m-1" style="width:350px;">
+            <div class="card-body">
+                <h5 class="card-title">Name: @Html.DisplayFor(modelItem => item.Name)</h5>
+            </div>
+        </div>
+    }
+</div>
