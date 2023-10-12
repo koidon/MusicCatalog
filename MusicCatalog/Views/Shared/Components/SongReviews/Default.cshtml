@@ -17,6 +17,8 @@
                 <button type="submit" class="btn btn-danger">Ta bort inlägg</button>
             </form>
 
+            <a asp-controller="Review" asp-action="UpdateReview" asp-route-id="@item.Id">Uppdatera recension</a>
+
         </div>
         <div class="card-body">
             <p class="card-text">@item.Content</p>

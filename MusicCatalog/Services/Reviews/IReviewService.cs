@@ -6,10 +6,12 @@ namespace MusicCatalog.Services.Reviews;
 public interface IReviewService
 {
     Task<CreateReviewDto> CreateReview(CreateReviewDto review);
-    //Review GetReview(int id);
+
+
+    Task<GetReviewDto> GetReviewById(int id);
 
     Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId);
 
-    void UpsertReview(Review review);
-    Task<List<GetReviewDto>> DeleteReview(int reviewId);
+    Task UpdateReview(UpdateReviewDto review);
+    Task DeleteReview(int reviewId);
 }

@@ -40,6 +40,48 @@ public class ReviewController : Controller
         return RedirectToAction("Release", "Home", new { songId = review.SongId });
     }
 
+
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> UpdateReview(int id)
+    {
+        try
+        {
+            var review = await _reviewService.GetReviewById(id);
+            return View(review);
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle hämtas");
+        }
+
+
+        return View();
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> UpdateReview(UpdateReviewDto review)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            await _reviewService.UpdateReview(review);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Recensionen har uppdaterats");
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle uppdateras");
+        }
+
+        return RedirectToAction("Release", "Home", new { songId = review.SongId });
+    }
+
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> DeleteReview(int reviewId, string songId)

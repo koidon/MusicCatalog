@@ -1,15 +1,16 @@
-@model MusicCatalog.Dtos.Review.CreateReviewDto
+@model MusicCatalog.Dtos.Review.GetReviewDto
 
 @{
-    ViewData["Title"] = "CreateReview";
+    ViewData["Title"] = "Update review";
 }
 
-<h3>Skapa en recension</h3>
+<h3>Uppdatera recensionen</h3>
 
 <hr />
 <div>
     <div>
-        <form asp-action="CreateReview" asp-controller="Review" method="post">
+        <form asp-action="UpdateReview" asp-controller="Review" method="post">
+            <input type="hidden" asp-for="Id">
             <input type="hidden" asp-for="SongId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -23,3 +24,9 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

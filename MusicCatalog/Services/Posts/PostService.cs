@@ -1,4 +1,5 @@
 
+/*
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -34,55 +35,49 @@ public class PostService : IPostService
 
         return newPost;
     }
-}
 
-/*
-public async Task<IEnumerable<GetPostDto>> GetPostsById(int communityId)
-{
-    var dbPosts = await _dbContext.Posts
-        .Include(p => p.AppUser)
-        .Where(p => communityId.Contains(p.CommunityId))
-        .ToListAsync();
-
-    var posts = dbPosts.Select(p => _mapper.Map<GetPostDto>(p)).ToList();
-
-    return posts;
-}
-
-public async Task<List<GetPostDto>> DeletePost(int postId)
-{
-    var posts = new List<GetPostDto>();
-
-    try
+    public async Task<IEnumerable<GetPostDto>> GetPostsById(int communityId)
     {
-        var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User!.Id == GetUserId());
-        if (dbPost is null)
-            throw new Exception($"Post with Id '{postId}' not found.");
+        var dbPosts = await _dbContext.Posts
+            .Include(p => p.User)
+            .Where(p => communityId == (p.CommunityId))
+            .ToListAsync();
 
-        _dbContext.Posts.Remove(dbPost);
-        await _dbContext.SaveChangesAsync();
+        var posts = dbPosts.Select(p => _mapper.Map<GetPostDto>(p)).ToList();
 
-        posts = await _dbContext.Posts.Where(p => p.User.Id == GetUserId())
-            .Select(p => _mapper.Map<GetPostDto>(p)).ToListAsync();
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e.Message);
-        return null;
+        return posts;
     }
 
-    return posts;
-}
-
-public Post GetPost(int postId)
-{
-    if (_dbContext.Posts.Find(postId) is Post post)
+    public async Task<List<GetPostDto>> DeletePost(int postId)
     {
-        return post;
+
+
+            var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User!.Id == GetUserId());
+            if (dbPost is null)
+                throw new Exception($"Post with Id '{postId}' not found.");
+
+            _dbContext.Posts.Remove(dbPost);
+            await _dbContext.SaveChangesAsync();
+
+            var posts = await _dbContext.Posts.Where(p => p.User.Id == GetUserId())
+                .Select(p => _mapper.Map<GetPostDto>(p)).ToListAsync();
+
+
+        return posts;
     }
 
-    return null;
-}
-}
-*/
+    public Post GetPost(int postId)
+    {
+        if (_dbContext.Posts.Find(postId) is Post post)
+        {
+            return post;
+        }
+
+        return new Post();
+    }
+}*/
+
+
+
+
 

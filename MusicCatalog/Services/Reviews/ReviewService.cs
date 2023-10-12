@@ -35,6 +35,17 @@ public class ReviewService : IReviewService
         return newReview;
     }
 
+    public async Task<GetReviewDto> GetReviewById(int reviewId)
+    {
+        var dbReview =
+            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId) ??
+            throw new Exception($"Review with Id '{reviewId}' not found.");
+
+        var reviewDto = _mapper.Map<GetReviewDto>(dbReview);
+
+        return reviewDto;
+    }
+
     public async Task<IEnumerable<GetReviewDto>> GetReviewsById(string songId)
     {
         var dbReviews = await _dbContext.Reviews
@@ -48,47 +59,31 @@ public class ReviewService : IReviewService
         return reviews;
     }
 
-    public async Task<List<GetReviewDto>> DeleteReview(int reviewId)
+    public async Task DeleteReview(int reviewId)
     {
         var dbReview =
-            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User!.Id == GetUserId()) ??
+            await _dbContext.Reviews.FirstOrDefaultAsync(r => r.Id == reviewId && r.User.Id == GetUserId()) ??
             throw new Exception($"Review with Id '{reviewId}' not found.");
 
 
         _dbContext.Reviews.Remove(dbReview);
         await _dbContext.SaveChangesAsync();
-
-
-        var reviews = await _dbContext.Reviews.Where(r => r.User!.Id == GetUserId())
-            .Select(r => _mapper.Map<GetReviewDto>(r)).ToListAsync();
-
-
-        return reviews;
     }
 
-   /* public Review GetReview(int reviewId)
+
+
+    public async Task UpdateReview(UpdateReviewDto updatedReview)
     {
-        if (_dbContext.Reviews.Find(reviewId) is Review review)
-        {
-            return review;
-        }
+        var review =
+            await _dbContext.Reviews
+                .Include(r => r.User)
+                .FirstOrDefaultAsync(r => r.Id == updatedReview.Id && r.User.Id == GetUserId()) ??
+            throw new Exception($"Review with Id '{updatedReview.Id}' not found.");
 
-        return null;
-    } */
+        _mapper.Map(updatedReview, review);
 
-    public void UpsertReview(Review review)
-    {
-        var isNewlyCreated = _dbContext.Reviews.Find(review.Id) is not Review;
+        _dbContext.Update(review);
 
-        if (isNewlyCreated)
-        {
-            _dbContext.Reviews.Add(review);
-        }
-        else
-        {
-            _dbContext.Reviews.Update(review);
-        }
-
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 }
