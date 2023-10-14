@@ -3,8 +3,6 @@ namespace MusicCatalog.Models;
 public class Review
 {
 
-    public const int MinContentLength = 3;
-    public const int MaxContentLength = 255;
 
 
     public int Id { get; set; }
