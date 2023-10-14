@@ -37,12 +37,16 @@ public class HomeController : Controller
 
         ViewBag.Alert = TempData["Alert"] ?? "";
 
+        TempData["type"] = "song";
+
         return View(song);
     }
 
     public async Task<IActionResult> Album(string albumId)
     {
         var album = await GetAlbum(albumId);
+
+        TempData["type"] = "album";
 
         ViewBag.Alert = TempData["Alert"] ?? "";
 

@@ -1,4 +1,5 @@
-﻿@model MusicCatalog.Models.Albums.Album
+﻿@using MusicCatalog.Dtos.Review
+@model MusicCatalog.Models.Albums.Album
 
 @{
     ViewData["Title"] = "Album";
@@ -46,6 +47,23 @@
                     </li>
                 </ul>
             </div>
+             @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <div class="card bg-dark mt-3">
+                                <div class="card-body">
+                                    @if (Model.Id is not null)
+                                    {
+                                        @await Component.InvokeAsync("CreateReview", new CreateReviewDto { SongId = Model.Id})
+                                    }
+
+                                </div>
+                            </div>
+                        }
+                        <div class="card bg-dark mt-3">
+                            <div class="card-body">
+                                @await Component.InvokeAsync("SongReviews", new { songId = Model.Id })
+                            </div>
+                        </div>
+                    </div>
         </div>
     </div>
-</div>

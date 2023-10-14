@@ -12,6 +12,6 @@ public class Album
     public Items[]? Songs { get; set; }
     public string? Artists { get; set; }
     public int? Popularity { get; set; }
-    public string? Gennres { get; set; }
+    public string? Genres { get; set; }
     public string? ImageUrl { get; set; }
 }

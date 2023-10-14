@@ -37,7 +37,12 @@ public class ReviewController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle skapas");
         }
 
-        return RedirectToAction("Release", "Home", new { songId = review.SongId });
+        return TempData["type"] switch
+        {
+            "song" => RedirectToAction("Release", "Home", new { songId = review.SongId }),
+            "album" => RedirectToAction("Album", "Home", new { albumId = review.SongId }),
+            _ => RedirectToAction("Index", "Home")
+        };
     }
 
 
@@ -79,7 +84,13 @@ public class ReviewController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle uppdateras");
         }
 
-        return RedirectToAction("Release", "Home", new { songId = review.SongId });
+
+        return TempData["type"] switch
+        {
+            "song" => RedirectToAction("Release", "Home", new { songId = review.SongId }),
+            "album" => RedirectToAction("Album", "Home", new { albumId = review.SongId }),
+            _ => RedirectToAction("Index", "Home")
+        };
     }
 
     [HttpPost]
@@ -99,7 +110,12 @@ public class ReviewController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när recensionen skulle tas bort");
         }
 
-        return RedirectToAction("Release", "Home", new { songId });
+        return TempData["type"] switch
+        {
+            "song" => RedirectToAction("Release", "Home", new { songId }),
+            "album" => RedirectToAction("Album", "Home", new { albumId = songId }),
+            _ => RedirectToAction("Index", "Home")
+        };
     }
 
 

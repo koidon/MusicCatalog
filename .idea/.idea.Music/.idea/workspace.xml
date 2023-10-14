@@ -15,8 +15,10 @@
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/ReviewController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Albums/Album.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Albums/Album.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Album.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Album.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +226,7 @@
       <workItem from="1697032216019" duration="6624000" />
       <workItem from="1697098153245" duration="20955000" />
       <workItem from="1697275397284" duration="14823000" />
+      <workItem from="1697295969202" duration="1459000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -367,114 +370,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Edit and delete button only shows for the correct user." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>76</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="76" containingFunctionPresentation="Method 'UpdateReview'">
-            <startOffsets>
-              <option value="2412" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2682" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>87</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="87" containingFunctionPresentation="Method 'UpdateReview'">
-            <startOffsets>
-              <option value="2779" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2779" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>88</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="89" containingFunctionPresentation="Method 'UpdateReview'">
-            <startOffsets>
-              <option value="2815" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2851" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
-          <line>84</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="84" containingFunctionPresentation="Method 'UpdateReview'">
-            <startOffsets>
-              <option value="2737" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2769" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
-          <line>44</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="44" containingFunctionPresentation="Method 'Album'">
-            <startOffsets>
-              <option value="1286" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1322" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
-          <line>113</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="113" containingFunctionPresentation="Method 'GetAlbum'">
-            <startOffsets>
-              <option value="3337" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3400" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs</url>
-          <line>91</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Spotify\SpotifyService.cs" initialLine="91" containingFunctionPresentation="Method 'GetAlbumById'">
-            <startOffsets>
-              <option value="3717" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3730" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs</url>
-          <line>77</line>
-          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Spotify\SpotifyService.cs" initialLine="77" containingFunctionPresentation="Method 'GetAlbumById'">
-            <startOffsets>
-              <option value="3035" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3707" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#MusicCatalog.Models.GetSong" memberName="album" />
