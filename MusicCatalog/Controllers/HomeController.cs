@@ -4,8 +4,11 @@ using MusicCatalog.Enums;
 using MusicCatalog.Models;
 using MusicCatalog.Models.Artist;
 using MusicCatalog.Services;
+using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
+using MusicCatalog.ViewModels;
 using Album = MusicCatalog.Models.Albums.Album;
+using Items = MusicCatalog.Models.Artist.Items;
 
 namespace MusicCatalog.Controllers;
 
@@ -15,14 +18,16 @@ public class HomeController : Controller
     private readonly ISpotifyAccountService _spotifyAccountService;
     private readonly ISpotifyService _spotifyService;
     private readonly IConfiguration _configuration;
+    private readonly IReviewService _reviewService;
 
     public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService,
-        IConfiguration configuration, ISpotifyService spotifyService)
+        IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
     {
         _logger = logger;
         _spotifyAccountService = spotifyAccountService;
         _configuration = configuration;
         _spotifyService = spotifyService;
+        _reviewService = reviewService;
     }
 
     public async Task<IActionResult> Index()
@@ -58,14 +63,28 @@ public class HomeController : Controller
     {
         var artist = await GetArtist(artistId);
 
+        var artistAlbums = await GetArtistAlbums(artistId);
+
+        var reviewCount = new List<int>();
+
+        if (artistAlbums.Albums is not null)
+            foreach (var t in artistAlbums.Albums)
+            {
+                var count = await _reviewService.GetReviewCount(t.Id ?? "");
+                reviewCount.Add(count);
+            }
+
+        var viewModel = new ArtistAlbumsViewModel
+        {
+            Artist = artist,
+            ArtistAlbums = artistAlbums,
+            ReviewCount = reviewCount
+        };
+
         ViewBag.Alert = TempData["Alert"] ?? "";
 
-        return View(artist);
+        return View(viewModel);
     }
-
-
-
-
 
     public IActionResult Privacy()
     {
@@ -94,7 +113,8 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            ViewBag.Alert = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låtarna skulle hämtas " + e.Message);
+            ViewBag.Alert =
+                AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låtarna skulle hämtas " + e.Message);
 
             return Enumerable.Empty<Song>();
         }
@@ -114,7 +134,8 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas " + e.Message);
+            TempData["Alert"] =
+                AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas " + e.Message);
 
             return new Song();
         }
@@ -134,7 +155,8 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Albumet skulle hämtas " + e.Message);
+            TempData["Alert"] =
+                AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Albumet skulle hämtas " + e.Message);
 
             return new Album();
         }
@@ -154,9 +176,31 @@ public class HomeController : Controller
         catch (Exception e)
         {
             Debug.Write(e);
-            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Artisten skulle hämtas " + e.Message);
+            TempData["Alert"] =
+                AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Artisten skulle hämtas " + e.Message);
 
             return new Artist();
+        }
+    }
+
+    private async Task<ArtistAlbums> GetArtistAlbums(string artistId)
+    {
+        try
+        {
+            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"],
+                _configuration["Spotify:ClientSecret"]);
+
+            var artistAlbums = await _spotifyService.GetArtistAlbumsById(artistId, token);
+
+            return artistAlbums;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] =
+                AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Artisten skulle hämtas " + e.Message);
+
+            return new ArtistAlbums();
         }
     }
 }

@@ -88,4 +88,13 @@ public class ReviewService : IReviewService
         _dbContext.Update(review);
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task<int> GetReviewCount(string songId)
+    {
+        var reviewCount = await _dbContext.Reviews
+            .Where(r => r.SongId == songId)
+            .CountAsync();
+
+        return reviewCount;
+    }
 }

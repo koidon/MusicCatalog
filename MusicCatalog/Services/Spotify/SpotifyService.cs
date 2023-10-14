@@ -118,6 +118,25 @@ public class SpotifyService : ISpotifyService
         return artist;
     }
 
+    public async Task<ArtistAlbums> GetArtistAlbumsById(string artistId, string accessToken)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        var response = await _httpClient.GetAsync($"https://api.spotify.com/v1/artists/{artistId}/albums");
+
+        response.EnsureSuccessStatusCode();
+
+        await using var responseStream = await response.Content.ReadAsStreamAsync();
+        var responseObject = await JsonSerializer.DeserializeAsync<GetArtistAlbums>(responseStream);
+
+        var artistAlbums = new ArtistAlbums
+        {
+            Albums = responseObject?.Items
+        };
+
+        return artistAlbums;
+    }
+
     /*public async Task<Artist> GetArtistById(string artistId, string accessToken)
     {
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);

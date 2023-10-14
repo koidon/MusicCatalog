@@ -12,13 +12,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added ability to review Albums">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/IReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/IReviewService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/ISpotifyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Artist.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Artist.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Artist.cshtml.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +44,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f47b5acba8a929c95035faba76833a5b3d65f9abd1f3350b92c69f8f0765b4/IViewComponentHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9daeeaab8409865442b5e80e634dc64dae9a14892fe81e0f17b46f51b2c48f8/DbSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa5d8d48a8d52525dbfbe2b393f7d44a6b89535f356fc6e74f0f74e8cc58e3c/ValidationMessageTagHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Data/Configurations/CommunityConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Dtos/Review/CreateReviewDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Models/Community.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
@@ -226,7 +225,8 @@
       <workItem from="1697032216019" duration="6624000" />
       <workItem from="1697098153245" duration="20955000" />
       <workItem from="1697275397284" duration="14823000" />
-      <workItem from="1697295969202" duration="5700000" />
+      <workItem from="1697295969202" duration="9616000" />
+      <workItem from="1697309258579" duration="2327000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -330,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697300939485</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added ability to view artists">
+      <option name="closed" value="true" />
+      <created>1697305225642</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697305225643</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +384,8 @@
     <MESSAGE value="Code refactoring. Added better constraints to Forms." />
     <MESSAGE value="Edit and delete button only shows for the correct user." />
     <MESSAGE value="Added ability to review Albums" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to review Albums" />
+    <MESSAGE value="Added ability to view artists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to view artists" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

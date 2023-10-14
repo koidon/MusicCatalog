@@ -14,4 +14,6 @@ public interface IReviewService
 
     Task UpdateReview(UpdateReviewDto review);
     Task DeleteReview(int reviewId);
+
+    Task<int> GetReviewCount(string songId);
 }

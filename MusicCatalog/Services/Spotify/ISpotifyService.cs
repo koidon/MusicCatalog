@@ -12,7 +12,7 @@ public interface ISpotifyService
 
     Task<Album> GetAlbumById(string albumId, string accessToken);
 
-    //Task<Artist> GetArtistAlbumsById(string artistId, string accessToken);
-
     Task<Artist> GetArtistById(string artistId, string accessToken);
+
+    Task<ArtistAlbums> GetArtistAlbumsById(string artistId, string accessToken);
 }
