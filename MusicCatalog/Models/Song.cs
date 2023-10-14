@@ -10,6 +10,8 @@ public class Song
     public string? AlbumName { get; set; }
     public string? AlbumId { get; set; }
     public string? Artists { get; set; }
+
+    public string? ArtistId { get; set; }
     public string? Popularity { get; set; }
     public string? ImageUrl { get; set; }
 }

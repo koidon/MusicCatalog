@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Enums;
 using MusicCatalog.Models;
+using MusicCatalog.Models.Artist;
 using MusicCatalog.Services;
 using MusicCatalog.Services.Spotify;
 using Album = MusicCatalog.Models.Albums.Album;
@@ -52,6 +53,17 @@ public class HomeController : Controller
 
         return View(album);
     }
+
+    public async Task<IActionResult> Artist(string artistId)
+    {
+        var artist = await GetArtist(artistId);
+
+        ViewBag.Alert = TempData["Alert"] ?? "";
+
+        return View(artist);
+    }
+
+
 
 
 
@@ -125,6 +137,26 @@ public class HomeController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Albumet skulle hämtas " + e.Message);
 
             return new Album();
+        }
+    }
+
+    private async Task<Artist> GetArtist(string artistId)
+    {
+        try
+        {
+            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"],
+                _configuration["Spotify:ClientSecret"]);
+
+            var artist = await _spotifyService.GetArtistById(artistId, token);
+
+            return artist;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Artisten skulle hämtas " + e.Message);
+
+            return new Artist();
         }
     }
 }

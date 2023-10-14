@@ -1,4 +1,5 @@
 ﻿using MusicCatalog.Models;
+using MusicCatalog.Models.Artist;
 using Album = MusicCatalog.Models.Albums.Album;
 
 namespace MusicCatalog.Services.Spotify;
@@ -10,4 +11,8 @@ public interface ISpotifyService
     Task<Song> GetSongById(string songId, string accessToken);
 
     Task<Album> GetAlbumById(string albumId, string accessToken);
+
+    //Task<Artist> GetArtistAlbumsById(string artistId, string accessToken);
+
+    Task<Artist> GetArtistById(string artistId, string accessToken);
 }
