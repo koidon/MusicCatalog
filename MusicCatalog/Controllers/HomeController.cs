@@ -4,6 +4,7 @@ using MusicCatalog.Enums;
 using MusicCatalog.Models;
 using MusicCatalog.Services;
 using MusicCatalog.Services.Spotify;
+using Album = MusicCatalog.Models.Albums.Album;
 
 namespace MusicCatalog.Controllers;
 
@@ -38,6 +39,17 @@ public class HomeController : Controller
 
         return View(song);
     }
+
+    public async Task<IActionResult> Album(string albumId)
+    {
+        var album = await GetAlbum(albumId);
+
+        ViewBag.Alert = TempData["Alert"] ?? "";
+
+        return View(album);
+    }
+
+
 
     public IActionResult Privacy()
     {
@@ -89,6 +101,26 @@ public class HomeController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när låten skulle hämtas " + e.Message);
 
             return new Song();
+        }
+    }
+
+    private async Task<Album> GetAlbum(string albumId)
+    {
+        try
+        {
+            var token = await _spotifyAccountService.GetToken(_configuration["Spotify:ClientId"],
+                _configuration["Spotify:ClientSecret"]);
+
+            var album = await _spotifyService.GetAlbumById(albumId, token);
+
+            return album;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när Albumet skulle hämtas " + e.Message);
+
+            return new Album();
         }
     }
 }
