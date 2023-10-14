@@ -1,3 +1,4 @@
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<MusicCatalog.Dtos.Review.GetReviewDto>
 
 
@@ -6,23 +7,25 @@
 @foreach (var item in Model)
 {
     <div class="card mb-1">
-        <div class="d-flex justify-content-between card-header pb-0">
+        <div class="d-flex justify-content-between card-header">
             <div class="d-flex gap-2">
                 <p class="card-title mb-2">@item.User.UserName</p>
-                <p class="text-muted mb-2">@item.CreatedAt</p>
+                <p class="text-muted mb-2">@item.UpdatedAt</p>
             </div>
-            <form method="post" asp-controller="Review" asp-action="DeleteReview">
-                <input type="hidden" name="songId" value="@item.SongId">
-                <input type="hidden" name="reviewId" value="@item.Id">
-                <button type="submit" class="btn btn-danger">Ta bort inlägg</button>
-            </form>
-
-            <a asp-controller="Review" asp-action="UpdateReview" asp-route-id="@item.Id">Uppdatera recension</a>
-
+            @if (User.Identity?.Name == item.User.UserName)
+            {
+                <div class="d-flex gap-2">
+                    <a asp-controller="Review" asp-action="UpdateReview" asp-route-id="@item.Id" class="btn btn-primary"><i class="bi bi-pencil-square"></i> &nbsp; Ändra</a>
+                    <form method="post" asp-controller="Review" asp-action="DeleteReview">
+                        <input type="hidden" name="songId" value="@item.SongId">
+                        <input type="hidden" name="reviewId" value="@item.Id">
+                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    </form>
+                </div>
+            }
         </div>
         <div class="card-body">
             <p class="card-text">@item.Content</p>
-            <a href="#" class="btn btn-primary"></a>
         </div>
     </div>
 }

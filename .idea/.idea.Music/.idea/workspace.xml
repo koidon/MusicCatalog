@@ -12,28 +12,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added ability to edit review">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Code refactoring. Added better constraints to Forms.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/CommunityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/CommunityConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/PostConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/PostConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/ReviewConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Data/Configurations/ReviewConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/CreateReviewDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/CreateReviewDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/GetReviewDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/UpdateReviewDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Review/UpdateReviewDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Review.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/ReviewComment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/ReviewComment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/ServiceErrors/Errors.Community.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/ServiceErrors/Errors.Post.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/ServiceErrors/Errors.Review.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Review/UpdateReview.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Review/UpdateReview.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/CreateReview/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/CreateReview/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/Components/SongReviews/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +232,7 @@
       <workItem from="1697014923683" duration="14196000" />
       <workItem from="1697032216019" duration="6624000" />
       <workItem from="1697098153245" duration="20955000" />
-      <workItem from="1697275397284" duration="1792000" />
+      <workItem from="1697275397284" duration="6895000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -320,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697139064515</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Code refactoring. Added better constraints to Forms.">
+      <option name="closed" value="true" />
+      <created>1697277431672</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697277431672</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,9 +363,66 @@
     <MESSAGE value="Changed AppUser to User so that Entity Framework finds UserId" />
     <MESSAGE value="Fixed model warnings." />
     <MESSAGE value="Added ability to edit review" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to edit review" />
+    <MESSAGE value="Code refactoring. Added better constraints to Forms." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring. Added better constraints to Forms." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>76</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="76" containingFunctionPresentation="Method 'UpdateReview'">
+            <startOffsets>
+              <option value="2412" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2682" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>87</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="87" containingFunctionPresentation="Method 'UpdateReview'">
+            <startOffsets>
+              <option value="2779" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2779" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>88</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="89" containingFunctionPresentation="Method 'UpdateReview'">
+            <startOffsets>
+              <option value="2815" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2851" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Services/Reviews/ReviewService.cs</url>
+          <line>84</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Services\Reviews\ReviewService.cs" initialLine="84" containingFunctionPresentation="Method 'UpdateReview'">
+            <startOffsets>
+              <option value="2737" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2769" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#MusicCatalog.Models.GetSong" memberName="album" />

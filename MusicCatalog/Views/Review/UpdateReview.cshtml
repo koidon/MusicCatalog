@@ -13,13 +13,13 @@
             <input type="hidden" asp-for="Id">
             <input type="hidden" asp-for="SongId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mb-1">
                 <label asp-for="Content" class="control-label visually-hidden"></label>
                 <textarea asp-for="Content" class="form-control" id="Content" name="Content"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Skapa" class="btn btn-primary"/>
+                <input type="submit" value="Uppdatera" class="btn btn-primary"/>
             </div>
         </form>
     </div>

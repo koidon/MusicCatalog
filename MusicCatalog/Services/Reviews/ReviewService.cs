@@ -82,8 +82,10 @@ public class ReviewService : IReviewService
 
         _mapper.Map(updatedReview, review);
 
-        _dbContext.Update(review);
+        review.UpdatedAt = DateTime.Now;
 
+
+        _dbContext.Update(review);
         await _dbContext.SaveChangesAsync();
     }
 }

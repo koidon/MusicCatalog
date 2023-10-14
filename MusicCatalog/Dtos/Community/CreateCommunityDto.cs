@@ -6,6 +6,6 @@ public class CreateCommunityDto
 {
     public string UserId { get; set; }
 
-    [Range(1, 255, ErrorMessage = "Titeln får inte längre än 255 karaktärer")]
+    [MaxLength(255, ErrorMessage = "Titeln får  inte vara längre än 255 karaktärer")]
     public string Name { get; set; } = null!;
 }
