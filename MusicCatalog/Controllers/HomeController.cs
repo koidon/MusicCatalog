@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using MusicCatalog.Enums;
 using MusicCatalog.Models;
 using MusicCatalog.Models.Artist;
@@ -8,7 +9,6 @@ using MusicCatalog.Services.Reviews;
 using MusicCatalog.Services.Spotify;
 using MusicCatalog.ViewModels;
 using Album = MusicCatalog.Models.Albums.Album;
-using Items = MusicCatalog.Models.Artist.Items;
 
 namespace MusicCatalog.Controllers;
 
@@ -19,15 +19,17 @@ public class HomeController : Controller
     private readonly ISpotifyService _spotifyService;
     private readonly IConfiguration _configuration;
     private readonly IReviewService _reviewService;
+    private readonly IMemoryCache _memoryCache;
 
     public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService,
-        IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService)
+        IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService, IMemoryCache memoryCache)
     {
         _logger = logger;
         _spotifyAccountService = spotifyAccountService;
         _configuration = configuration;
         _spotifyService = spotifyService;
         _reviewService = reviewService;
+        _memoryCache = memoryCache;
     }
 
     public async Task<IActionResult> Index()
@@ -62,26 +64,34 @@ public class HomeController : Controller
     public async Task<IActionResult> Artist(string artistId)
     {
         var artist = await GetArtist(artistId);
-
         var artistAlbums = await GetArtistAlbums(artistId);
-
-        var reviewCount = new List<int>();
-
-        if (artistAlbums.Albums is not null)
-            foreach (var t in artistAlbums.Albums)
-            {
-                var count = await _reviewService.GetReviewCount(t.Id ?? "");
-                reviewCount.Add(count);
-            }
-
         var viewModel = new ArtistAlbumsViewModel
         {
             Artist = artist,
             ArtistAlbums = artistAlbums,
-            ReviewCount = reviewCount
+            ReviewCount = new List<int>()
         };
 
-        ViewBag.Alert = TempData["Alert"] ?? "";
+        if (!_memoryCache.TryGetValue("ReviewCounts", out List<int>? cachedReviewCounts))
+        {
+            cachedReviewCounts = new List<int>();
+
+            if (artistAlbums.Albums is not null)
+            {
+                foreach (var album in artistAlbums.Albums)
+                {
+                    var count = await _reviewService.GetReviewCount(album.Id ?? "");
+                    cachedReviewCounts.Add(count);
+                }
+            }
+
+            _memoryCache.Set("ReviewCounts", cachedReviewCounts, new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
+        }
+
+        viewModel.ReviewCount = cachedReviewCounts;
 
         return View(viewModel);
     }
