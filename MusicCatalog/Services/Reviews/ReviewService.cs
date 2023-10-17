@@ -69,9 +69,7 @@ public class ReviewService : IReviewService
         _dbContext.Reviews.Remove(dbReview);
         await _dbContext.SaveChangesAsync();
     }
-
-
-
+    
     public async Task UpdateReview(UpdateReviewDto updatedReview)
     {
         var review =

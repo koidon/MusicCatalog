@@ -10,4 +10,6 @@ public interface ICommunityService
     Task<IEnumerable<GetCommunityDto>> GetCommunities();
 
     Task<List<GetCommunityDto>> DeleteCommunity(int communityId);
+
+    Task UpdateCommunity(UpdateCommunityDto community);
 }

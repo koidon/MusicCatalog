@@ -1,5 +1,3 @@
-
-/*
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -66,16 +64,33 @@ public class PostService : IPostService
         return posts;
     }
 
-    public Post GetPost(int postId)
+    public async Task<GetPostDto> GetPostById(int postId)
     {
-        if (_dbContext.Posts.Find(postId) is Post post)
-        {
-            return post;
-        }
+        var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId);
 
-        return new Post();
+        if (dbPost is null)
+            return new GetPostDto();
+
+        var postDto = _mapper.Map<GetPostDto>(dbPost);
+        return postDto;
     }
-}*/
+    public async Task UpdatePost(UpdatePostDto updatedPost)
+    {
+        var post =
+            await _dbContext.Posts
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.Id == updatedPost.Id && p.User.Id == GetUserId()) ??
+            throw new Exception($"Post with Id '{updatedPost.Id}' not found.");
+
+        _mapper.Map(updatedPost, post);
+
+        post.UpdatedAt = DateTime.Now;
+
+        _dbContext.Update(post);
+        await _dbContext.SaveChangesAsync();
+    }
+
+}
 
 
 

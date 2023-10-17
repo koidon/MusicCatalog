@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MusicCatalog.Dtos.Community;
 using MusicCatalog.Enums;
@@ -26,8 +25,7 @@ public class CommunityController : Controller
         {
             if (!ModelState.IsValid)
             {
-                // Redirect till CreatePost vyn
-                //return View();
+                return View();
             }
 
             await _communityService.CreateCommunity(community);
@@ -84,33 +82,66 @@ public class CommunityController : Controller
 
         return View();
     }
-    /*public async Task<IActionResult> ViewPosts(int communityId)
+    [HttpGet]
+    public async Task<IActionResult> ViewCommunity(int communityId)
     {
-        // Retrieve posts for the selected community
-        var posts = await _communityService.GetPostsByCommunityId(communityId);
+        try
+        {
+            var community = await _communityService.GetCommunity(communityId);
+            if (community.Id == 0)
+            {
+                TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Community not found");
+                return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
+            }
+            return View(community);
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle hämtas");
+        }
 
-        // Retrieve community name
-        var community = await _communityService.GetCommunityName(communityId);
-
-        ViewBag.CommunityName = community.Name;
-        ViewBag.CommunityId = community.Id;
-
-        return View();
+        return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
     }
+
     [HttpGet]
     [Authorize]
-    public IActionResult CreatePost(int communityId)
+    public async Task<IActionResult> UpdateCommunity(int id)
     {
-        ViewBag.CommunityId = communityId;
+        try
+        {
+            var community = await _communityService.GetCommunity(id);
+            return View(community);
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle hämtas för redigering");
+        }
 
         return View();
     }
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> CreatePost(CreatePostDto post)
+    public async Task<IActionResult> UpdateCommunity(UpdateCommunityDto updatedCommunity)
     {
-        // Handle the creation of the post
-        // Redirect to the ViewPosts action for the selected community after creation
-    }*/
+        try
+        {
+            if (!ModelState.IsValid)
+                return View(updatedCommunity); // Return to the edit view with validation errors
+
+            await _communityService.UpdateCommunity(updatedCommunity);
+
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Community har uppdaterats");
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle uppdateras");
+        }
+
+        return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
+    }
+    
 }

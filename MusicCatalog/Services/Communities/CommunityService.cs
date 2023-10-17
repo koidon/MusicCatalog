@@ -66,4 +66,20 @@ public class CommunityService : ICommunityService
         var communityDto = _mapper.Map<GetCommunityDto>(dbCommunity);
         return communityDto;
     }
+    public async Task UpdateCommunity(UpdateCommunityDto updatedCommunity)
+    {
+        var community =
+            await _dbContext.Communities
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(c => c.Id == updatedCommunity.Id && c.User.Id == GetUserId()) ??
+            throw new Exception($"Community with Id '{updatedCommunity.Id}' not found.");
+
+        _mapper.Map(updatedCommunity, community);
+
+        community.UpdatedAt = DateTime.Now;
+
+        _dbContext.Update(community);
+        await _dbContext.SaveChangesAsync();
+    }
+
 }
