@@ -143,5 +143,4 @@ public class CommunityController : Controller
 
         return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
     }
-    
 }
