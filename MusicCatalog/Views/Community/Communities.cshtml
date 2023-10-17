@@ -12,6 +12,7 @@
         <div class="card m-1" style="width:350px;">
             <div class="card-body">
                 <h5 class="card-title">Name: @Html.DisplayFor(modelItem => item.Name)</h5>
+                @Html.ActionLink("View Posts", "AllPosts", "Post", new { communityId = item.Id }, new { @class = "btn btn-primary" })
             </div>
         </div>
     }

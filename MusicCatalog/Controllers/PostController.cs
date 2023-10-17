@@ -12,12 +12,10 @@ namespace MusicCatalog.Controllers;
 public class PostController : Controller
 {
     private readonly IPostService _postService;
-    private readonly UserManager<IdentityUser> _userManager;
 
-    public PostController(IPostService postService, UserManager<IdentityUser> userManager)
+    public PostController(IPostService postService)
     {
         _postService = postService;
-        _userManager = userManager;
     }
 
     [HttpPost]

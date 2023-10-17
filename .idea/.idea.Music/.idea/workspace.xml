@@ -12,12 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added views,error with Dtos for updated community">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +225,7 @@
       <workItem from="1697530335273" duration="7559000" />
       <workItem from="1697549834640" duration="72000" />
       <workItem from="1697553508408" duration="70000" />
-      <workItem from="1697553796256" duration="306000" />
+      <workItem from="1697553796256" duration="4528000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -358,7 +360,14 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1697545383533</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="Added views,error with Dtos for updated community">
+      <option name="closed" value="true" />
+      <created>1697554139967</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1697554139967</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +417,8 @@
     <MESSAGE value="Added ability to view Artist albums and Review count" />
     <MESSAGE value="Added caching to review count for improved performance" />
     <MESSAGE value="CRUD for posts and communities" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD for posts and communities" />
+    <MESSAGE value="Added views,error with Dtos for updated community" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added views,error with Dtos for updated community" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

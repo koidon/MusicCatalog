@@ -14,8 +14,10 @@ public class AutoMapperProfile : Profile
         CreateMap<Review, GetReviewDto>();
         CreateMap<UpdateReviewDto, Review>();
         CreateMap<CreatePostDto,Post>();
+        CreateMap<UpdatePostDto,Post>();
         CreateMap<Post, GetPostDto>();
         CreateMap<CreateCommunityDto, Community>();
+        CreateMap<UpdateCommunityDto, Community>();
         CreateMap<Community, GetCommunityDto>();
     }
 }

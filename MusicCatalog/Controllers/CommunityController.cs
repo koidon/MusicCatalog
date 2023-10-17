@@ -129,7 +129,7 @@ public class CommunityController : Controller
         try
         {
             if (!ModelState.IsValid)
-                return View(updatedCommunity); // Return to the edit view with validation errors
+                return View(); // Return to the edit view with validation errors
 
             await _communityService.UpdateCommunity(updatedCommunity);
 
