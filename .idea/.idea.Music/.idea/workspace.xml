@@ -13,25 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7/storage_v2/_src_/schema/svph2118_db_ht2022.7SLIKw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_10_2023_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_10_2023_15_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_00_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_00_08__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/AutoMapperProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Community.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/ICommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/ICommunityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="reviews" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,17 +32,15 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9eb0d6d539bf494b9c647c567861a4694400/4e/97948c91/ErrorOr`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3e7a5d9e8f1e8fc8895e3999e4b986ebd69c6f311e8a7f7ba94f4560a54a89/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5016bb3a21b99e56d43be6e97809eba5a84f9eebf61062be7dcca0c2bc204a/DisplayAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81a3bcf4bb6aa5e62a9839f9cfeeba6126496f4fa07d1e57b27a5176e42525/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f47b5acba8a929c95035faba76833a5b3d65f9abd1f3350b92c69f8f0765b4/IViewComponentHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9daeeaab8409865442b5e80e634dc64dae9a14892fe81e0f17b46f51b2c48f8/DbSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa5d8d48a8d52525dbfbe2b393f7d44a6b89535f356fc6e74f0f74e8cc58e3c/ValidationMessageTagHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Migrations/ApplicationDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -77,33 +58,34 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature-community",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5007704&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;identity&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;,
+      &quot;mariadb&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Isak\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Isak\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Isak\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: IIS Express">
     <configuration name="MusicCatalog: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
@@ -206,6 +188,9 @@
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="" />
@@ -232,6 +217,13 @@
       <workItem from="1696940299164" duration="3603000" />
       <workItem from="1697014923683" duration="14196000" />
       <workItem from="1697032216019" duration="6624000" />
+      <workItem from="1697098153245" duration="20955000" />
+      <workItem from="1697275397284" duration="14823000" />
+      <workItem from="1697295969202" duration="9616000" />
+      <workItem from="1697309258579" duration="2989000" />
+      <workItem from="1697365683393" duration="447000" />
+      <workItem from="1697382093505" duration="6013000" />
+      <workItem from="1697459465036" duration="10387000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -295,7 +287,71 @@
       <option name="project" value="LOCAL" />
       <updated>1697034262668</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed model warnings.">
+      <option name="closed" value="true" />
+      <created>1697098233774</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697098233774</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added ability to edit review">
+      <option name="closed" value="true" />
+      <created>1697139064514</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697139064515</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Code refactoring. Added better constraints to Forms.">
+      <option name="closed" value="true" />
+      <created>1697277431672</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697277431672</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Edit and delete button only shows for the correct user.">
+      <option name="closed" value="true" />
+      <created>1697282393432</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697282393432</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added ability to review Albums">
+      <option name="closed" value="true" />
+      <created>1697300939485</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697300939485</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added ability to view artists">
+      <option name="closed" value="true" />
+      <created>1697305225642</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697305225643</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added ability to view Artist albums and Review count">
+      <option name="closed" value="true" />
+      <created>1697311628832</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697311628832</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added caching to review count for improved performance">
+      <option name="closed" value="true" />
+      <created>1697394556558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1697394556558</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +369,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="reviews" />
                       </list>
                     </value>
                   </entry>
@@ -336,68 +392,90 @@
     <MESSAGE value="Starting community and post services" />
     <MESSAGE value="Added votes, fixed post and community models" />
     <MESSAGE value="Changed AppUser to User so that Entity Framework finds UserId" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed AppUser to User so that Entity Framework finds UserId" />
+    <MESSAGE value="Fixed model warnings." />
+    <MESSAGE value="Added ability to edit review" />
+    <MESSAGE value="Code refactoring. Added better constraints to Forms." />
+    <MESSAGE value="Edit and delete button only shows for the correct user." />
+    <MESSAGE value="Added ability to review Albums" />
+    <MESSAGE value="Added ability to view artists" />
+    <MESSAGE value="Added ability to view Artist albums and Review count" />
+    <MESSAGE value="Added caching to review count for improved performance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added caching to review count for improved performance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs</url>
-          <line>76</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\CommunityController.cs" initialLine="78" containingFunctionPresentation="Method 'Communities'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
+          <line>111</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="110" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="2240" />
+              <option value="4624" />
             </startOffsets>
             <endOffsets>
-              <option value="2265" />
+              <option value="4647" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="48" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs</url>
-          <line>75</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\CommunityController.cs" initialLine="77" containingFunctionPresentation="Method 'Communities'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
+          <line>115</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="114" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="2168" />
+              <option value="4857" />
             </startOffsets>
             <endOffsets>
-              <option value="2227" />
+              <option value="4986" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="49" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs</url>
-          <line>80</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\CommunityController.cs" initialLine="82" containingFunctionPresentation="Method 'Communities'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
+          <line>138</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="137" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="2326" />
+              <option value="5855" />
             </startOffsets>
             <endOffsets>
-              <option value="2341" />
+              <option value="5869" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs</url>
-          <line>84</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\CommunityController.cs" initialLine="86" containingFunctionPresentation="Method 'Communities'">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
+          <line>132</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="131" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="2480" />
+              <option value="5641" />
             </startOffsets>
             <endOffsets>
-              <option value="2494" />
+              <option value="5706" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
+          <line>133</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="132" containingFunctionPresentation="Method 'OnPostAsync'">
+            <startOffsets>
+              <option value="5727" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5741" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#MusicCatalog.Models.GetSong" memberName="album" />
+        <PinnedItemInfo parentTag="Type#MusicCatalog.Models.Albums.Album" memberName="Songs" />
         <PinnedItemInfo parentTag="Type#System.Net.Http.HttpMessageInvoker" memberName="_handler" />
       </pinned-members>
     </pin-to-top-manager>

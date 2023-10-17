@@ -8,10 +8,8 @@ public class ReviewConfiguration : IEntityTypeConfiguration<Review>
 {
     public void Configure(EntityTypeBuilder<Review> builder)
     {
-        builder.Property(b => b.Content)
-            .HasMaxLength(Review.MaxContentLength);
         builder.Property(b => b.CreatedAt)
-            .HasDefaultValueSql("curdate()");
+            .HasDefaultValueSql("NOW()");
         builder.Property(b => b.UpdatedAt)
-            .HasDefaultValueSql("curdate()");
+            .HasDefaultValueSql("NOW()");
     } }

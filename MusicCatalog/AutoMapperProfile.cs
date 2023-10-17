@@ -12,6 +12,7 @@ public class AutoMapperProfile : Profile
     {
         CreateMap<CreateReviewDto,Review>();
         CreateMap<Review, GetReviewDto>();
+        CreateMap<UpdateReviewDto, Review>();
         CreateMap<CreatePostDto,Post>();
         CreateMap<Post, GetPostDto>();
         CreateMap<CreateCommunityDto, Community>();

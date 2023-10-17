@@ -8,11 +8,9 @@ public class PostConfiguration : IEntityTypeConfiguration<Post>
 {
     public void Configure(EntityTypeBuilder<Post> builder)
     {
-        builder.Property(b => b.Content)
-            .HasMaxLength(Post.MaxContentLength);
         builder.Property(b => b.CreatedAt)
-            .HasDefaultValueSql("curdate()");
+            .HasDefaultValueSql("NOW()");
         builder.Property(b => b.UpdatedAt)
-            .HasDefaultValueSql("curdate()");
+            .HasDefaultValueSql("NOW()");
     }
 }

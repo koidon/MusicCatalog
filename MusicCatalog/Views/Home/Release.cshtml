@@ -27,7 +27,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <h5 class="card-title">Popularity</h5>
+                        <h5 class="card-title">Popularitet</h5>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: @Model.Popularity%" aria-valuenow="@Model.Popularity" aria-valuemin="0" aria-valuemax="100">@Model.Popularity</div>
                         </div>
@@ -54,3 +54,9 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

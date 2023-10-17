@@ -1,0 +1,74 @@
+@model MusicCatalog.ViewModels.ArtistAlbumsViewModel
+
+@{
+    ViewData["Title"] = "Artist";
+}
+
+@Html.Raw(ViewBag.Alert)
+<h1>@Html.DisplayFor(model => model.Artist.ArtistName)</h1>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border-primary mb-3">
+                <img src="@Html.DisplayFor(model => model.Artist.ImageUrl)" class="card-img-top" alt="Release picture"/>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <h5 class="card-title">Genres</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Artist.Genres)</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5 class="card-title">Popularitet</h5>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: @Model.Artist.Popularity%" aria-valuenow="@Model.Artist.Popularity" aria-valuemin="0" aria-valuemax="100">@Model.Artist.Popularity</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card bg-dark mt-3">
+                <div class="card-body">
+                    <h5 class="card-title bg-dark">Album</h5>
+                    @if (Model.ArtistAlbums.Albums is not null)
+                    {
+                        <table class="table">
+                            <thead>
+                            <tr class="table-dark">
+                                <th scope="col">Titel</th>
+                                <th scope="col">Utgivningsdatum</th>
+                                <th scope="col">Antal recensioner</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @for (int i = 0; i < Model.ArtistAlbums.Albums.Length; i++)
+                            {
+                                var item = Model.ArtistAlbums.Albums[i];
+                                <tr class="table-dark">
+                                    <th scope="row">
+                                        <div class="d-flex gap-2">
+                                            <img src="@item.Images?[1].Url" class="img-fluid" width="50" height="50" alt="Release picture"/>
+                                            <a asp-controller="Home" asp-action="Album" asp-route-albumId="@item.Id">@item.Name</a>
+                                        </div>
+                                    </th>
+                                    <th>@item.ReleaseDate</th>
+                                    <th>
+                                        @if (i < Model.ReviewCount.Count)
+                                        {
+                                            @Model.ReviewCount[i]
+                                        }
+                                    </th>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

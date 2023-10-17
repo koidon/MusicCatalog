@@ -3,9 +3,6 @@ namespace MusicCatalog.Models;
 public class ReviewComment
 {
 
-    public const int MinContentLength = 3;
-    public const int MaxContentLength = 255;
-
     public int Id { get; set; }
 
     public int ReviewId { get; set; }

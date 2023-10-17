@@ -1,13 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MusicCatalog.Models;
 
 public class Post
 {
-    public const int MinContentLength = 3;
-    public const int MaxContentLength = 255;
     public int Id { get; set; }
 
     public string UserId { get; set; } = null!;
 
+    [MaxLength(255)]
     public string Title { get; set; } = null!;
 
     public string Content { get; set; } = null!;
