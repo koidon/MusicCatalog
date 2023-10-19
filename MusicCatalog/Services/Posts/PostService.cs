@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
 using MusicCatalog.Dtos.Post;
 using MusicCatalog.Models;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MusicCatalog.Services.Posts;
 
@@ -88,6 +91,14 @@ public class PostService : IPostService
 
         _dbContext.Update(post);
         await _dbContext.SaveChangesAsync();
+    }
+    public async Task<int> GetVoteCount(int postId)
+    {
+        var voteCount = await _dbContext.Votes
+            .Where(v => v.PostId == postId)
+            .CountAsync();
+
+        return voteCount;
     }
     // Votes ta med postId som parameter och counta mot databasen
 }

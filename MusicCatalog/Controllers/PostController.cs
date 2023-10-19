@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using MusicCatalog.Dtos.Post;
 using MusicCatalog.Enums;
 using MusicCatalog.Services;
@@ -12,10 +13,12 @@ namespace MusicCatalog.Controllers;
 public class PostController : Controller
 {
     private readonly IPostService _postService;
+    private readonly IMemoryCache _memoryCache;
 
-    public PostController(IPostService postService)
+    public PostController(IPostService postService, IMemoryCache memoryCache)
     {
         _postService = postService;
+        _memoryCache = memoryCache;
     }
     [HttpGet]
     [Authorize]
@@ -104,14 +107,53 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle uppdateras");
         }
 
-        return RedirectToAction(""); // Redirect to an appropriate action
+        return RedirectToAction("AllPosts");
     }
     [HttpGet]
-    public async Task<IActionResult> AllPosts(int communityId)
+    public async Task<IActionResult> AllPosts(int communityId, string searchQuery)
     {
         try
         {
             var posts = await _postService.GetPostsById(communityId);
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                searchQuery = searchQuery.ToLower();
+                posts = posts.Where(p =>
+                    p.Title.ToLower().Contains(searchQuery) ||
+                    p.Content.ToLower().Contains(searchQuery)
+                ).ToList();
+            }
+
+            // Count and cache vote counts
+            if (!_memoryCache.TryGetValue("VoteCounts", out Dictionary<int, int>? cachedVoteCounts))
+            {
+                cachedVoteCounts = new Dictionary<int, int>();
+
+                if (posts != null)
+                {
+                    foreach (var post in posts)
+                    {
+                        var count = await _postService.GetVoteCount(post.Id);
+                        cachedVoteCounts[post.Id] = count;
+                    }
+                }
+
+                _memoryCache.Set("VoteCounts", cachedVoteCounts, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                });
+            }
+
+            // Update the post view model with vote counts
+            foreach (var post in posts)
+            {
+                if (cachedVoteCounts.TryGetValue(post.Id, out int voteCount))
+                {
+                    post.VoteCount = voteCount;
+                }
+            }
+
             return View(posts);
         }
         catch (Exception e)
@@ -122,6 +164,7 @@ public class PostController : Controller
 
         return View();
     }
+
     [HttpGet]
     public async Task<IActionResult> ViewPost(int postId)
     {

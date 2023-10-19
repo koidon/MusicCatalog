@@ -12,19 +12,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_00_08_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_00_08__Changes_.xml" beforeDir="false" />
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Fixed create and delete, added bootstrap styling for AllPosts">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/DeleteCommunity.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/DeletePost.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +40,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Controllers/CommunityController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Services/Communities/ICommunityService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Views/Post/AllPosts.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
@@ -234,7 +231,7 @@
       <workItem from="1697553508408" duration="70000" />
       <workItem from="1697553796256" duration="5267000" />
       <workItem from="1697626401180" duration="4508000" />
-      <workItem from="1697697929717" duration="2347000" />
+      <workItem from="1697697929717" duration="11868000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -383,7 +380,14 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1697575162967</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="Fixed create and delete, added bootstrap styling for AllPosts">
+      <option name="closed" value="true" />
+      <created>1697701112649</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1697701112649</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +439,8 @@
     <MESSAGE value="CRUD for posts and communities" />
     <MESSAGE value="Added views,error with Dtos for updated community" />
     <MESSAGE value="small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
+    <MESSAGE value="Fixed create and delete, added bootstrap styling for AllPosts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed create and delete, added bootstrap styling for AllPosts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

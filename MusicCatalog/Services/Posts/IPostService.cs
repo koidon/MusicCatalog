@@ -13,4 +13,6 @@ public interface IPostService
     Task<List<GetPostDto>> DeletePost(int postId);
 
     Task UpdatePost(UpdatePostDto post);
+    Task<int> GetVoteCount(int postId);
+
 }

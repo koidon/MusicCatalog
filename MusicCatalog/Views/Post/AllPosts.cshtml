@@ -7,18 +7,29 @@
 <h1>AllPosts</h1>
 
 <p>
-    <a asp-controller="Post"asp-action="CreatePost">Create New</a>
+    <a asp-controller="Post" asp-action="CreatePost" class="btn btn-success">Create New Post</a>
 </p>
+
+<form asp-action="AllPosts" asp-controller="Post" method="get">
+    <div class="input-group mb-3">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search Posts">
+        <input type="hidden" name="communityId" value=@Model.FirstOrDefault()?.CommunityId>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
 <div class="row">
     @foreach (var item in Model) {
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-header">
-                    @Html.DisplayFor(modelItem => item.title)
+                    @Html.DisplayFor(modelItem => item.Title)
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.title)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
                 </div>
                 <div class="card-footer">
                     <a asp-controller="Post" asp-action="UpdatePost" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
@@ -26,6 +37,7 @@
                         <input type="hidden" name="postId" value="@item.Id" />
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
+                    <button class="btn btn-success like-button" data-post-id="@item.Id">Like @item.VoteCount</button>
                 </div>
             </div>
         </div>
