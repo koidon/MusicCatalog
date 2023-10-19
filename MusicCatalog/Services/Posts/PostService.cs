@@ -89,7 +89,7 @@ public class PostService : IPostService
         _dbContext.Update(post);
         await _dbContext.SaveChangesAsync();
     }
-
+    // Votes ta med postId som parameter och counta mot databasen
 }
 
 

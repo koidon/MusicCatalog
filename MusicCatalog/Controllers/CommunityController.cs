@@ -16,6 +16,12 @@ public class CommunityController : Controller
     {
         _communityService = communityService;
     }
+    [HttpGet]
+    [Authorize]
+    public IActionResult CreateCommunity()
+    {
+        return View(); 
+    }
 
     [HttpPost]
     [Authorize]
@@ -38,7 +44,7 @@ public class CommunityController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle skapas");
         }
 
-        return RedirectToAction("");
+        return RedirectToAction("Communities");
     }
 
     [HttpPost]
@@ -64,7 +70,7 @@ public class CommunityController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle tas bort");
         }
 
-        return RedirectToAction(""); // Replace
+        return RedirectToAction("Communities");
     }
     [HttpGet]
     public async Task<IActionResult> Communities()

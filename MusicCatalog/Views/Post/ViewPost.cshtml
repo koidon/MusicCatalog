@@ -67,6 +67,10 @@
     </dl>
 </div>
 <div>
+    <form asp-action="DeletePost" method="post">
+        <input type="hidden" name="postId" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
     @Html.ActionLink("UpdatePost", "UpdatePost", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="AllPosts">Back to List</a>
 </div>

@@ -31,6 +31,10 @@
     </dl>
 </div>
 <div>
+    <form asp-action="DeleteCommunity" method="post">
+        <input type="hidden" name="communityId" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
     @Html.ActionLink("Edit", "UpdateCommunity", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Communities">Back to List</a>
 </div>

@@ -17,7 +17,13 @@ public class PostController : Controller
     {
         _postService = postService;
     }
-
+    [HttpGet]
+    [Authorize]
+    public IActionResult CreatePost()
+    {
+        return View();
+    }
+    
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> CreatePost(CreatePostDto post)
@@ -26,7 +32,6 @@ public class PostController : Controller
         {
             if (!ModelState.IsValid)
             {
-                // Redirect till CreatePost vyn
                 return View();
             }
 
@@ -40,7 +45,7 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle skapas");
         }
 
-        return RedirectToAction("");
+        return RedirectToAction("AllPosts");
     }
 
     [HttpPost]
@@ -52,6 +57,7 @@ public class PostController : Controller
             await _postService.DeletePost(postId);
 
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Inlägget har tagits bort");
+            
         }
         catch (Exception e)
         {
@@ -59,7 +65,7 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle tas bort");
         }
 
-        return RedirectToAction("");
+        return RedirectToAction("AllPosts");
     }
     [HttpGet]
     [Authorize]
@@ -137,5 +143,5 @@ public class PostController : Controller
 
         return RedirectToAction("AllPosts"); // Redirect to the post list or another appropriate action
     }
-
+    
 }
