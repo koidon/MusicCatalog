@@ -4,7 +4,7 @@ namespace MusicCatalog.Dtos.Post;
 
 public class CreatePostDto
 {
-    public string CommunityId { get; set; } = null!;
+    public int CommunityId { get; set; }
     [Required (ErrorMessage = "Rutan får inte lämnas tom")]
     public string Title { get; set; } = null!;
     [Required (ErrorMessage = "Rutan får inte lämnas tom")]

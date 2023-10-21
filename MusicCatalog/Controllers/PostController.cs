@@ -22,9 +22,14 @@ public class PostController : Controller
     }
     [HttpGet]
     [Authorize]
-    public IActionResult CreatePost()
+    public IActionResult CreatePost(int communityId)
     {
-        return View();
+        var model = new CreatePostDto
+        {
+            CommunityId = communityId
+        };
+
+        return View(model);
     }
     
     [HttpPost]
@@ -48,12 +53,12 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle skapas");
         }
 
-        return RedirectToAction("AllPosts");
+        return RedirectToAction("AllPosts", new { communityId = post.CommunityId });
     }
 
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> DeletePost(int postId)
+    public async Task<IActionResult> DeletePost(int postId, int communityId)
     {
         try
         {
@@ -68,7 +73,7 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle tas bort");
         }
 
-        return RedirectToAction("AllPosts");
+        return RedirectToAction("AllPosts", new { communityId });
     }
     [HttpGet]
     [Authorize]
@@ -107,11 +112,12 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle uppdateras");
         }
 
-        return RedirectToAction("AllPosts");
+        return RedirectToAction("AllPosts", new { communityId = post.CommunityId});
     }
     [HttpGet]
     public async Task<IActionResult> AllPosts(int communityId, string searchQuery)
     {
+        ViewBag.Alert = TempData["Alert"] ?? "";
         try
         {
             var posts = await _postService.GetPostsById(communityId);
@@ -124,8 +130,7 @@ public class PostController : Controller
                     p.Content.ToLower().Contains(searchQuery)
                 ).ToList();
             }
-
-            // Count and cache vote counts
+            
             if (!_memoryCache.TryGetValue("VoteCounts", out Dictionary<int, int>? cachedVoteCounts))
             {
                 cachedVoteCounts = new Dictionary<int, int>();
@@ -144,8 +149,7 @@ public class PostController : Controller
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
                 });
             }
-
-            // Update the post view model with vote counts
+            
             foreach (var post in posts)
             {
                 if (cachedVoteCounts.TryGetValue(post.Id, out int voteCount))
@@ -166,15 +170,15 @@ public class PostController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> ViewPost(int postId)
+    public async Task<IActionResult> ViewPost(int postId, int communityId)
     {
+        ViewBag.Alert = TempData["Alert"] ?? "";
         try
         {
             var post = await _postService.GetPostById(postId);
             if (post.Id == 0)
             {
                 TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Post not found");
-                //return RedirectToAction("AllPosts", new { communityId = post.CommunityId });
             }
             return View(post);
         }
@@ -184,7 +188,6 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägg skulle hämtas");
         }
 
-        return RedirectToAction("AllPosts"); // Redirect to the post list or another appropriate action
+        return RedirectToAction("AllPosts", new { communityId });
     }
-    
 }

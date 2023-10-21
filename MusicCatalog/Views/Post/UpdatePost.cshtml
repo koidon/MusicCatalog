@@ -4,68 +4,35 @@
     ViewData["Title"] = "UpdatePost";
 }
 
-<h1>UpdatePost</h1>
+<h1>Update Post</h1>
 
-<h4>GetPostDto</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="UpdatePost">
+            <input type="hidden" asp-for="CommunityId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostId" class="control-label"></label>
-                <input asp-for="PostId" class="form-control" />
-                <span asp-validation-for="PostId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+                <label asp-for="Title" class="control-label">Title</label>
+                <input asp-for="Title" class="form-control"/>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+                <label asp-for="Content" class="control-label">Content</label>
+                <textarea asp-for="Content" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="ImageId" class="control-label"></label>
-                <input asp-for="ImageId" class="form-control" />
-                <span asp-validation-for="ImageId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VoteCount" class="control-label"></label>
-                <input asp-for="VoteCount" class="form-control" />
-                <span asp-validation-for="VoteCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="AllPosts">Back to List</a>
+    <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId"class="btn btn-secondary">Back to List</a>
 </div>
 
 @section Scripts {
