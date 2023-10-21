@@ -12,21 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-12_10_11_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-12_10_11__Changes_.xml" beforeDir="false" />
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="fixed routing and added Alerts">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/UpdateCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/UpdateCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/CreatePostDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/UpdatePostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/UpdatePostDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/UpdateCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/UpdateCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Post/GetPostDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +39,7 @@
     <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Controllers/PostController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pette/RiderProjects/MusicCatalog/MusicCatalog/Views/Post/AllPosts.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -236,7 +230,7 @@
       <workItem from="1697626401180" duration="4508000" />
       <workItem from="1697697929717" duration="15975000" />
       <workItem from="1697796866248" duration="4673000" />
-      <workItem from="1697881442157" duration="595000" />
+      <workItem from="1697881442157" duration="6560000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup. Added identity and a basic API fetch from Spotify API">
       <option name="closed" value="true" />
@@ -399,7 +393,14 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1697731260313</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="fixed routing and added Alerts">
+      <option name="closed" value="true" />
+      <created>1697882058822</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1697882058822</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +454,8 @@
     <MESSAGE value="small fixes" />
     <MESSAGE value="Fixed create and delete, added bootstrap styling for AllPosts" />
     <MESSAGE value="added Search for posts and started vote feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Search for posts and started vote feature" />
+    <MESSAGE value="fixed routing and added Alerts" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed routing and added Alerts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -487,6 +489,32 @@
           <line>133</line>
           <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Areas\Identity\Pages\Account\Login.cshtml.cs" initialLine="132" containingFunctionPresentation="Method 'OnPostAsync'" />
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
+          <line>175</line>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="197" containingFunctionPresentation="Method 'LikePost'">
+            <startOffsets>
+              <option value="4999" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5035" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
+          <line>179</line>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="201" containingFunctionPresentation="Method 'LikePost'">
+            <startOffsets>
+              <option value="5096" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5111" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

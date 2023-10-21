@@ -1,12 +1,10 @@
+using System.Diagnostics;
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MusicCatalog.Data;
 using MusicCatalog.Dtos.Post;
 using MusicCatalog.Models;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace MusicCatalog.Services.Posts;
 
@@ -100,7 +98,38 @@ public class PostService : IPostService
 
         return voteCount;
     }
-    // Votes ta med postId som parameter och counta mot databasen
+    public async Task<bool> LikePost(int postId)
+    {
+        try
+        {
+            var existingVote = await _dbContext.Votes.FirstOrDefaultAsync(vote => vote.PostId == postId && vote.UserId == GetUserId());
+
+            if (existingVote != null)
+            {
+                return false;
+            }
+            
+            var newVote = new Vote
+            {
+                PostId = postId,
+                UserId = GetUserId()
+            };
+            
+            _dbContext.Votes.Add(newVote);
+            
+            var post = await _dbContext.Posts.FindAsync(postId);
+
+            
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            return false;
+        }
+    }
 }
 
 

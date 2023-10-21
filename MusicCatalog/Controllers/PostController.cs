@@ -131,31 +131,9 @@ public class PostController : Controller
                 ).ToList();
             }
             
-            if (!_memoryCache.TryGetValue("VoteCounts", out Dictionary<int, int>? cachedVoteCounts))
-            {
-                cachedVoteCounts = new Dictionary<int, int>();
-
-                if (posts != null)
-                {
-                    foreach (var post in posts)
-                    {
-                        var count = await _postService.GetVoteCount(post.Id);
-                        cachedVoteCounts[post.Id] = count;
-                    }
-                }
-
-                _memoryCache.Set("VoteCounts", cachedVoteCounts, new MemoryCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-                });
-            }
-            
             foreach (var post in posts)
             {
-                if (cachedVoteCounts.TryGetValue(post.Id, out int voteCount))
-                {
-                    post.VoteCount = voteCount;
-                }
+                    post.VoteCount = await _postService.GetVoteCount(post.Id);
             }
 
             return View(posts);
@@ -186,6 +164,21 @@ public class PostController : Controller
         {
             Debug.Write(e);
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägg skulle hämtas");
+        }
+
+        return RedirectToAction("AllPosts", new { communityId });
+    }
+    [HttpPost]
+    public async Task<IActionResult> LikePost(int postId, int communityId)
+    {
+        try
+        {
+            await _postService.LikePost(postId);
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            return Json(new { success = false, message = "Failed to vote on the post." });
         }
 
         return RedirectToAction("AllPosts", new { communityId });

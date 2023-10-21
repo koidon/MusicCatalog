@@ -41,9 +41,41 @@
                         <input type="hidden" name="postId" value="@item.Id"/>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                    <button class="btn btn-success like-button" data-post-id="@item.Id">Like @item.VoteCount</button>
+                    <form asp-action="LikePost" method="post">
+                        <input type="hidden" name="communityId" value="@item.CommunityId">
+                        <input type="hidden" name="postId" value="@item.Id">
+                        <button type="submit" class="btn btn-success like-button" data-post-id="@item.Id">Like @item.VoteCount</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     }
 </div>
+
+@*<script>
+    $(document).ready(function () {
+        $('.like-button').click(function () {
+            var postId = $(this).data('post-id');
+            var likeButton = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '/Post/LikePost',
+                data: { postId: postId },
+                success: function (response) {
+                    if (response.success) {
+                        // Update the vote count on the current view
+                        var voteCount = parseInt(likeButton.text().replace('Like ', '')) + 1;
+                        likeButton.text('Like ' + voteCount);
+                    } else {
+                        console.error('User has already voted on this post.');
+                    }
+                },
+                error: function () {
+                    console.error('Failed to like the post.');
+                }
+            });
+        });
+    });
+</script>*@

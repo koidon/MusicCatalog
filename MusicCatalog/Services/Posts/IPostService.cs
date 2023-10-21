@@ -14,5 +14,6 @@ public interface IPostService
 
     Task UpdatePost(UpdatePostDto post);
     Task<int> GetVoteCount(int postId);
+    Task<bool> LikePost(int postId);
 
 }
