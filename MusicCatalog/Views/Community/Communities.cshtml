@@ -17,10 +17,13 @@
             <div class="card-body">
                 <h5 class="card-title">Name: @Html.DisplayFor(modelItem => item.Name)</h5>
                 @Html.ActionLink("View Posts", "AllPosts", "Post", new { communityId = item.Id }, new { @class = "btn btn-primary" })
-                <form asp-action="DeleteCommunity" method="post" class="mt-2">
-                    <input type="hidden" name="communityId" value="@item.Id" />
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                @if (User.Identity?.Name == item.User.UserName)
+                {
+                    <form asp-action="DeleteCommunity" method="post" class="mt-2">
+                        <input type="hidden" name="communityId" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                }
             </div>
         </div>
     }

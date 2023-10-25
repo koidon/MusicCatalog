@@ -49,8 +49,6 @@ public class PostService : IPostService
 
     public async Task<List<GetPostDto>> DeletePost(int postId)
     {
-
-
             var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User!.Id == GetUserId());
             if (dbPost is null)
                 throw new Exception($"Post with Id '{postId}' not found.");
@@ -67,7 +65,7 @@ public class PostService : IPostService
 
     public async Task<GetPostDto> GetPostById(int postId)
     {
-        var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId);
+        var dbPost = await _dbContext.Posts.Include(p => p.User).FirstOrDefaultAsync(p => p.Id == postId);
 
         if (dbPost is null)
             return new GetPostDto();

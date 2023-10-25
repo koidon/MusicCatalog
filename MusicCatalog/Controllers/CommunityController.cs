@@ -47,6 +47,7 @@ public class CommunityController : Controller
         return RedirectToAction("Communities");
     }
 
+
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> DeleteCommunity(int communityId)

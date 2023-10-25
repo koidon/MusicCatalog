@@ -7,6 +7,7 @@ using MusicCatalog.Dtos.Post;
 using MusicCatalog.Enums;
 using MusicCatalog.Services;
 using MusicCatalog.Services.Posts;
+using MusicCatalog.ViewModels;
 
 namespace MusicCatalog.Controllers;
 
@@ -20,6 +21,7 @@ public class PostController : Controller
         _postService = postService;
         _memoryCache = memoryCache;
     }
+
     [HttpGet]
     [Authorize]
     public IActionResult CreatePost(int communityId)
@@ -31,7 +33,7 @@ public class PostController : Controller
 
         return View(model);
     }
-    
+
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> CreatePost(CreatePostDto post)
@@ -65,7 +67,6 @@ public class PostController : Controller
             await _postService.DeletePost(postId);
 
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Inlägget har tagits bort");
-            
         }
         catch (Exception e)
         {
@@ -75,6 +76,7 @@ public class PostController : Controller
 
         return RedirectToAction("AllPosts", new { communityId });
     }
+
     [HttpGet]
     [Authorize]
     public async Task<IActionResult> UpdatePost(int id)
@@ -112,8 +114,9 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle uppdateras");
         }
 
-        return RedirectToAction("AllPosts", new { communityId = post.CommunityId});
+        return RedirectToAction("AllPosts", new { communityId = post.CommunityId });
     }
+
     [HttpGet]
     public async Task<IActionResult> AllPosts(int communityId, string searchQuery)
     {
@@ -130,13 +133,15 @@ public class PostController : Controller
                     p.Content.ToLower().Contains(searchQuery)
                 ).ToList();
             }
-            
+
             foreach (var post in posts)
             {
-                    post.VoteCount = await _postService.GetVoteCount(post.Id);
+                post.VoteCount = await _postService.GetVoteCount(post.Id);
             }
 
-            return View(posts);
+            PostCommunityIdViewModel viewModel = new PostCommunityIdViewModel
+                { Posts = posts, CommunityId = communityId };
+            return View(viewModel);
         }
         catch (Exception e)
         {
@@ -158,6 +163,7 @@ public class PostController : Controller
             {
                 TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Post not found");
             }
+
             return View(post);
         }
         catch (Exception e)
@@ -168,7 +174,9 @@ public class PostController : Controller
 
         return RedirectToAction("AllPosts", new { communityId });
     }
+
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> LikePost(int postId, int communityId)
     {
         try

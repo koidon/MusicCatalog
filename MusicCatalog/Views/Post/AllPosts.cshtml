@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MusicCatalog.Dtos.Post.GetPostDto>
+﻿@model MusicCatalog.ViewModels.PostCommunityIdViewModel
 
 @{
     ViewData["Title"] = "AllPosts";
@@ -7,14 +7,14 @@
 
 <h1>Posts</h1>
 
-<p>
-    <a asp-controller="Post" asp-action="CreatePost" asp-route-communityId="@Model.FirstOrDefault()?.CommunityId" class="btn btn-success">Create New Post</a>
-</p>
+<div>
+    <a asp-controller="Post" asp-action="CreatePost" asp-route-communityId="@Model.CommunityId" class="btn btn-success">Create New Post</a>
+</div>
 
 <form asp-action="AllPosts" asp-controller="Post" method="get">
     <div class="input-group mb-3">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search Posts">
-        <input type="hidden" name="communityId" value=@Model.FirstOrDefault()?.CommunityId>
+        <input type="hidden" name="communityId" value=@Model.CommunityId>
         <div class="input-group-append">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
@@ -22,7 +22,7 @@
 </form>
 
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Posts)
     {
         <div class="col-md-4 mb-4">
             <div class="card">
@@ -35,47 +35,22 @@
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
                 </div>
                 <div class="card-footer">
-                    <a asp-controller="Post" asp-action="UpdatePost" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                    <form asp-action="DeletePost" method="post" class="d-inline">
-                        <input type="hidden" name="communityId" value="@item.CommunityId">
-                        <input type="hidden" name="postId" value="@item.Id"/>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    @if (User.Identity.Name == item.User?.UserName)
+                    {
+                        <a asp-controller="Post" asp-action="UpdatePost" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <form asp-action="DeletePost" method="post" class="d-inline">
+                            <input type="hidden" name="communityId" value="@item.CommunityId">
+                            <input type="hidden" name="postId" value="@item.Id"/>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    }
                     <form asp-action="LikePost" method="post">
                         <input type="hidden" name="communityId" value="@item.CommunityId">
                         <input type="hidden" name="postId" value="@item.Id">
                         <button type="submit" class="btn btn-success like-button" data-post-id="@item.Id">Like @item.VoteCount</button>
                     </form>
-                    
                 </div>
             </div>
         </div>
     }
 </div>
-
-@*<script>
-    $(document).ready(function () {
-        $('.like-button').click(function () {
-            var postId = $(this).data('post-id');
-            var likeButton = $(this);
-
-            $.ajax({
-                type: 'POST',
-                url: '/Post/LikePost',
-                data: { postId: postId },
-                success: function (response) {
-                    if (response.success) {
-                        // Update the vote count on the current view
-                        var voteCount = parseInt(likeButton.text().replace('Like ', '')) + 1;
-                        likeButton.text('Like ' + voteCount);
-                    } else {
-                        console.error('User has already voted on this post.');
-                    }
-                },
-                error: function () {
-                    console.error('Failed to like the post.');
-                }
-            });
-        });
-    });
-</script>*@

@@ -46,6 +46,9 @@
 </div>
 
 <div>
-    <a asp-action="UpdatePost" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    @if (User.Identity.Name == Model.User.UserName)
+    {    
+        <a asp-action="UpdatePost" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    }
     <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId" class="btn btn-secondary">Back to List</a>
 </div>

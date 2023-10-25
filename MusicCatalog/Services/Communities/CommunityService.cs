@@ -26,7 +26,10 @@ public class CommunityService : ICommunityService
     public async Task<CreateCommunityDto> CreateCommunity(CreateCommunityDto newCommunity)
     {
         var community = _mapper.Map<Community>(newCommunity);
+
         community.UserId = GetUserId();
+        community.User = await _dbContext.AppUsers.FirstOrDefaultAsync(u => u.Id == community.UserId) ?? throw new InvalidOperationException($"User with Id '{community.User.Id} could not be found.") ;
+        
 
         _dbContext.Communities.Add(community);
         await _dbContext.SaveChangesAsync();
@@ -36,7 +39,7 @@ public class CommunityService : ICommunityService
 
     public async Task<IEnumerable<GetCommunityDto>> GetCommunities()
     {
-        var dbCommunities = await _dbContext.Communities.ToListAsync();
+        var dbCommunities = await _dbContext.Communities.Include(c => c.User).ToListAsync();
 
         var communities = dbCommunities.Select(c => _mapper.Map<GetCommunityDto>(c)).ToList();
 
