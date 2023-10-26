@@ -50,15 +50,15 @@ public class PostService : IPostService
 
     public async Task<List<GetPostDto>> DeletePost(int postId)
     {
-            var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User.Id == GetUserId());
-            if (dbPost is null)
-                throw new Exception($"Post with Id '{postId}' not found.");
+        var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User.Id == GetUserId());
+        if (dbPost is null)
+            throw new Exception($"Post with Id '{postId}' not found.");
 
-            _dbContext.Posts.Remove(dbPost);
-            await _dbContext.SaveChangesAsync();
+        _dbContext.Posts.Remove(dbPost);
+        await _dbContext.SaveChangesAsync();
 
-            var posts = await _dbContext.Posts.Where(p => p.User.Id == GetUserId())
-                .Select(p => _mapper.Map<GetPostDto>(p)).ToListAsync();
+        var posts = await _dbContext.Posts.Where(p => p.User.Id == GetUserId())
+            .Select(p => _mapper.Map<GetPostDto>(p)).ToListAsync();
 
 
         return posts;
@@ -74,6 +74,7 @@ public class PostService : IPostService
         var postDto = _mapper.Map<GetPostDto>(dbPost);
         return postDto;
     }
+
     public async Task UpdatePost(UpdatePostDto updatedPost)
     {
         var post =
@@ -89,6 +90,7 @@ public class PostService : IPostService
         _dbContext.Update(post);
         await _dbContext.SaveChangesAsync();
     }
+
     public async Task<int> GetVoteCount(int postId)
     {
         var voteCount = await _dbContext.Votes
@@ -97,25 +99,27 @@ public class PostService : IPostService
 
         return voteCount;
     }
+
     public async Task<bool> LikePost(int postId)
     {
         try
         {
-            var existingVote = await _dbContext.Votes.FirstOrDefaultAsync(vote => vote.PostId == postId && vote.UserId == GetUserId());
+            var existingVote =
+                await _dbContext.Votes.FirstOrDefaultAsync(vote => vote.PostId == postId && vote.UserId == GetUserId());
 
             if (existingVote != null)
             {
                 return false;
             }
-            
+
             var newVote = new Vote
             {
                 PostId = postId,
                 UserId = GetUserId()
             };
-            
+
             _dbContext.Votes.Add(newVote);
-            
+
             await _dbContext.SaveChangesAsync();
 
             return true;
@@ -125,6 +129,36 @@ public class PostService : IPostService
             Debug.Write(e);
             return false;
         }
+    }
+
+    public async Task<bool> RemoveLike(int postId)
+    {
+        try
+        {
+            var existingVote =
+                await _dbContext.Votes.FirstOrDefaultAsync(vote => vote.PostId == postId && vote.UserId == GetUserId());
+
+            if (existingVote != null)
+            {
+                _dbContext.Votes.Remove(existingVote);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+        catch (Exception e)
+        {
+            Debug.Write(e);
+            return false;
+        }
+    }
+
+    public async Task<Vote?> GetLike(int postId)
+    {
+        var existingVote =
+            await _dbContext.Votes.FirstOrDefaultAsync(vote => vote.PostId == postId && vote.UserId == GetUserId());
+        return existingVote;
     }
 }
 

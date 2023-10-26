@@ -4,7 +4,7 @@ namespace MusicCatalog.ViewModels;
 
 public class PostCommunityIdViewModel
 {
-    public IEnumerable<GetPostDto> Posts { get; set; }
+    public required IEnumerable<GetPostDto> Posts { get; set; }
 
     public int CommunityId { get; set; }
     

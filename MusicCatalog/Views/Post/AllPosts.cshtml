@@ -14,7 +14,7 @@
 <form asp-action="AllPosts" asp-controller="Post" method="get">
     <div class="input-group mb-3">
         <input type="text" name="searchQuery" class="form-control" placeholder="Sök efter post">
-        <input type="hidden" name="communityId" value=@Model.CommunityId>
+        <input type="hidden" name="communityId" value="@Model.CommunityId">
         <div class="input-group-append">
             <button type="submit" class="btn btn-primary">Sök</button>
         </div>
@@ -32,7 +32,7 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
+                    <p class="card-text">@(item.Content.Length <= 50 ? item.Content : item.Content.Substring(0, 50))...</p>
                 </div>
                 <div class="card-footer">
                     @if (User.Identity?.Name == item.User.UserName)

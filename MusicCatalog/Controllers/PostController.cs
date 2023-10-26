@@ -117,6 +117,7 @@ public class PostController : Controller
     public async Task<IActionResult> AllPosts(int communityId, string searchQuery)
     {
         ViewBag.Alert = TempData["Alert"] ?? "";
+        TempData["type"] = "posts";
         try
         {
             var posts = await _postService.GetPostsById(communityId);
@@ -152,9 +153,11 @@ public class PostController : Controller
     public async Task<IActionResult> ViewPost(int postId, int communityId)
     {
         ViewBag.Alert = TempData["Alert"] ?? "";
+        TempData["type"] = "post";
         try
         {
             var post = await _postService.GetPostById(postId);
+            post.VoteCount = await _postService.GetVoteCount(post.Id);
             if (post.Id == 0)
             {
                 TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Post not found");
@@ -177,14 +180,30 @@ public class PostController : Controller
     {
         try
         {
-            await _postService.LikePost(postId);
+            var existingVote = await _postService.GetLike(postId);
+
+            if (existingVote != null)
+            {
+                // User has already liked the post, remove the like
+                await _postService.RemoveLike(postId);
+            }
+            else
+            {
+                // User hasn't liked the post, add the like
+                await _postService.LikePost(postId);
+            }
         }
         catch (Exception e)
         {
             Debug.Write(e);
-            return Json(new { success = false, message = "Failed to vote on the post." });
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel!");
         }
 
-        return RedirectToAction("AllPosts", new { communityId });
+        return TempData["type"] switch
+        {
+            "post" => RedirectToAction("ViewPost", new { postId}),
+            "posts" => RedirectToAction("AllPosts", new { communityId }),
+            _ => RedirectToAction("Index", "Home")
+        };
     }
 }

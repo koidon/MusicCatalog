@@ -13,20 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/IPostService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/UpdateCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/UpdateCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/ViewModels/PostCommunityIdViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/ViewModels/PostCommunityIdViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/UpdatePost.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

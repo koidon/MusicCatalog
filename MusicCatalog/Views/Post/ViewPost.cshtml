@@ -8,34 +8,25 @@
 
 <h1>@Html.DisplayFor(model => model.Title)</h1>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Innehåll:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-        <dt class="col-sm-2">
-            Röster
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VoteCount)
-        </dd>
-        <dt class="col-sm-2">
-            Skapad
-        </dt>
-        <dd class="col-sm-10">
-            @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
-        </dd>
-        <dt class="col-sm-2">
-            Uppdaterad
-        </dt>
-        <dd class="col-sm-10">
-            @Model.UpdatedAt.ToString("yyyy-MM-dd HH:mm:ss")
-        </dd>
-    </dl>
+<hr/>
+
+<div class="d-flex flex-column card mb-1">
+    <div class="d-flex  card-header">
+        <div class="d-flex gap-2 justify-content-between">
+            <p class="card-title mb-2">@Model.User.UserName</p>
+            <p class="text-muted mb-2">@Model.UpdatedAt.ToString("yyyy-MM-dd")</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.Content</p>
+    </div>
+    <div class="card-footer">
+        <form asp-action="LikePost" method="post">
+                <input type="hidden" name="communityId" value="@Model.CommunityId">
+                <input type="hidden" name="postId" value="@Model.Id">
+                <button type="submit" class="btn btn-success like-button" data-post-id="@Model.Id"><i class="bi bi-hand-thumbs-up-fill"></i>    @Model.VoteCount</button>
+            </form>
+    </div>
 </div>
 
 <div>
