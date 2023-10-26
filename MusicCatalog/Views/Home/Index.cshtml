@@ -34,7 +34,10 @@
                     <a asp-controller="Home" asp-action="Release" asp-route-songId="@item.Id">@Html.DisplayFor(modelItem => item.TrackName)</a>
                 </h6>
                 <a asp-controller="Home" asp-action="Album" asp-route-albumId="@item.AlbumId" class="card-text">@Html.DisplayFor(modelItem => item.AlbumName)</a>
-                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture"/>
+                <a asp-controller="Home" asp-action="Album" asp-route-albumId="@item.AlbumId">
+                    <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="300" height="300" alt="Release picture"/>
+                </a>
+
                 <p>Popularitet:</p>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: @item.Popularity%" aria-valuenow="@item.Popularity" aria-valuemin="0" aria-valuemax="100">@item.Popularity</div>
