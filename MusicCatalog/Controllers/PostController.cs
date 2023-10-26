@@ -184,12 +184,10 @@ public class PostController : Controller
 
             if (existingVote != null)
             {
-                // User has already liked the post, remove the like
                 await _postService.RemoveLike(postId);
             }
             else
             {
-                // User hasn't liked the post, add the like
                 await _postService.LikePost(postId);
             }
         }
