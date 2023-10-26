@@ -12,9 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Ability to Search release">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Models/Song.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -398,7 +400,15 @@
       <option name="presentableId" value="LOCAL−00022" />
       <updated>1697882058822</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Ability to Search release">
+      <option name="closed" value="true" />
+      <created>1698311804330</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1698311804330</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +463,8 @@
     <MESSAGE value="Fixed create and delete, added bootstrap styling for AllPosts" />
     <MESSAGE value="added Search for posts and started vote feature" />
     <MESSAGE value="fixed routing and added Alerts" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed routing and added Alerts" />
+    <MESSAGE value="Ability to Search release" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ability to Search release" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -523,6 +534,45 @@
           <line>143</line>
           <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="141" containingFunctionPresentation="Method 'AllPosts'" />
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
+          <line>49</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="49" containingFunctionPresentation="Method 'Index'">
+            <startOffsets>
+              <option value="1755" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1782" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
+          <line>52</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="53" containingFunctionPresentation="Method 'Index'">
+            <startOffsets>
+              <option value="1887" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1899" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs</url>
+          <line>56</line>
+          <properties documentPath="C:\Users\Isak\RiderProjects\MusicCatalog\MusicCatalog\Controllers\HomeController.cs" initialLine="58" containingFunctionPresentation="Method 'Index'">
+            <startOffsets>
+              <option value="2005" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2027" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

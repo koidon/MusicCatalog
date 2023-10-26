@@ -12,6 +12,8 @@ public class Song
     public string? Artists { get; set; }
 
     public string? ArtistId { get; set; }
-    public string? Popularity { get; set; }
+    public int? Popularity { get; set; }
     public string? ImageUrl { get; set; }
+
+    public string? ReleaseDate { get; set; }
 }

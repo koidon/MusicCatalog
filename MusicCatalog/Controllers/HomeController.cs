@@ -32,7 +32,7 @@ public class HomeController : Controller
         _memoryCache = memoryCache;
     }
 
-    public async Task<IActionResult> Index(string searchQuery)
+    public async Task<IActionResult> Index(string searchQuery, string sortOrder)
     {
         var playlist = await GetPlaylist();
 
@@ -46,6 +46,13 @@ public class HomeController : Controller
                 s.TrackName?.ToLower() == searchQuery
             ).ToList();
         }
+
+        playlist = sortOrder switch
+        {
+            "release" => playlist.OrderByDescending(s => s.ReleaseDate).ToList(),
+            "popularity" => playlist.OrderByDescending(s => s.Popularity).ToList(),
+            _ => playlist
+        };
 
         return View(playlist);
     }

@@ -38,8 +38,9 @@ public class SpotifyService : ISpotifyService
             AlbumId = item.Track?.Album?.Id,
             Artists = string.Join(", ", item.Track?.Artists?.Select(artist => artist.Name) ?? Enumerable.Empty<string>()),
             ArtistId = item.Track?.Artists?[0].Id,
-            Popularity = item.Track?.Popularity.ToString() ?? "",
-            ImageUrl = item.Track?.Album?.Images?[0].Url ?? ""
+            Popularity = item.Track?.Popularity,
+            ImageUrl = item.Track?.Album?.Images?[0].Url ?? "",
+            ReleaseDate = item.Track?.Album?.ReleaseDate ?? ""
         }) ?? Enumerable.Empty<Song>();
     }
 
@@ -60,7 +61,7 @@ public class SpotifyService : ISpotifyService
             TrackName = responseObject?.Name ?? "",
             AlbumName = responseObject?.Album?.Name ?? "",
             Artists = string.Join(", ", responseObject?.Artists?.Select(artist => artist.Name) ?? Enumerable.Empty<string>()),
-            Popularity = responseObject?.Popularity.ToString() ?? "",
+            Popularity = responseObject?.Popularity,
             ImageUrl = responseObject?.Album?.Images?[0].Url ?? ""
         };
 
