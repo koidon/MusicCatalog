@@ -7,7 +7,7 @@
 @Html.Raw(ViewBag.Alert)
 
 <p>
-    <a asp-action="CreateCommunity" class="btn btn-primary">Create New Community</a>
+    <a asp-action="CreateCommunity" class="btn btn-primary">Skapa ny community</a>
 </p>
 
 <div class="row">
@@ -15,13 +15,13 @@
     {
         <div class="card m-1" style="width:350px;">
             <div class="card-body">
-                <h5 class="card-title">Name: @Html.DisplayFor(modelItem => item.Name)</h5>
-                @Html.ActionLink("View Posts", "AllPosts", "Post", new { communityId = item.Id }, new { @class = "btn btn-primary" })
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                @Html.ActionLink("Visa inlägg", "AllPosts", "Post", new { communityId = item.Id }, new { @class = "btn btn-primary" })
                 @if (User.Identity?.Name == item.User.UserName)
                 {
                     <form asp-action="DeleteCommunity" method="post" class="mt-2">
                         <input type="hidden" name="communityId" value="@item.Id" />
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Ta bort</button>
                     </form>
                 }
             </div>

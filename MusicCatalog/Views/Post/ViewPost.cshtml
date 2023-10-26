@@ -1,43 +1,36 @@
 ﻿@model MusicCatalog.Dtos.Post.GetPostDto
 
 @{
-    ViewData["Title"] = "ViewPost";
+    ViewData["Title"] = "Visa Inlägg";
 }
 
 @Html.Raw(ViewBag.Alert)
 
-<h1>View Post</h1>
+<h1>@Html.DisplayFor(model => model.Title)</h1>
 
 <div>
-    <h4>Post Details</h4>
-    <hr/>
+    <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Content)
+            Innehåll:
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Content)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VoteCount)
+            Röster
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.VoteCount)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
+            Skapad
         </dt>
         <dd class="col-sm-10">
             @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedAt)
+            Uppdaterad
         </dt>
         <dd class="col-sm-10">
             @Model.UpdatedAt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -46,9 +39,9 @@
 </div>
 
 <div>
-    @if (User.Identity.Name == Model.User.UserName)
-    {    
-        <a asp-action="UpdatePost" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    @if (User.Identity?.Name == Model.User.UserName)
+    {
+        <a asp-action="UpdatePost" asp-route-id="@Model.Id" class="btn btn-primary">Redigera</a>
     }
-    <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId" class="btn btn-secondary">Back to List</a>
+    <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId" class="btn btn-secondary">Tillbaka</a>
 </div>

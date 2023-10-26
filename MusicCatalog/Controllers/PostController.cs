@@ -1,8 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using MusicCatalog.Dtos.Post;
 using MusicCatalog.Enums;
 using MusicCatalog.Services;
@@ -14,12 +12,10 @@ namespace MusicCatalog.Controllers;
 public class PostController : Controller
 {
     private readonly IPostService _postService;
-    private readonly IMemoryCache _memoryCache;
 
-    public PostController(IPostService postService, IMemoryCache memoryCache)
+    public PostController(IPostService postService)
     {
         _postService = postService;
-        _memoryCache = memoryCache;
     }
 
     [HttpGet]
@@ -114,7 +110,7 @@ public class PostController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när inlägget skulle uppdateras");
         }
 
-        return RedirectToAction("AllPosts", new { communityId = post.CommunityId });
+        return RedirectToAction("ViewPost", new { postId = post.Id });
     }
 
     [HttpGet]

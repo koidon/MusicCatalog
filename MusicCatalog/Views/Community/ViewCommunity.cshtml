@@ -4,7 +4,7 @@
     ViewData["Title"] = "ViewCommunity";
 }
 
-<h1>View Community</h1>
+<h1>Community</h1>
 
 <div>
     <hr/>
@@ -30,7 +30,7 @@
     </dl>
 </div>
 <div>
-    @if (User.Identity.Name == Model.User?.UserName)
+    @if (User.Identity?.Name == Model.User.UserName)
     {
         <form asp-action="DeleteCommunity" method="post">
             <input type="hidden" name="communityId" value="@Model.Id"/>
@@ -38,5 +38,5 @@
         </form>
         @Html.ActionLink("Edit", "UpdateCommunity", new { /* id = Model.PrimaryKey */ }) 
     }
-    <a asp-action="Communities">Back to List</a>
+    <a asp-action="Communities">Tillbaka</a>
 </div>

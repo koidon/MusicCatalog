@@ -27,7 +27,8 @@ public class PostService : IPostService
     public async Task<CreatePostDto> CreatePost(CreatePostDto newPost)
     {
         var post = _mapper.Map<Post>(newPost);
-        post.User = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
+        post.User = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == GetUserId()) ??
+                    throw new Exception($"User with Id '{post.User.Id}' not found.");
 
         _dbContext.Posts.Add(post);
         await _dbContext.SaveChangesAsync();
@@ -35,7 +36,7 @@ public class PostService : IPostService
         return newPost;
     }
 
-    public async Task<IEnumerable<GetPostDto>> GetPostsById(int communityId)
+    public async Task<List<GetPostDto>> GetPostsById(int communityId)
     {
         var dbPosts = await _dbContext.Posts
             .Include(p => p.User)
@@ -49,7 +50,7 @@ public class PostService : IPostService
 
     public async Task<List<GetPostDto>> DeletePost(int postId)
     {
-            var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User!.Id == GetUserId());
+            var dbPost = await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == postId && p.User.Id == GetUserId());
             if (dbPost is null)
                 throw new Exception($"Post with Id '{postId}' not found.");
 
@@ -114,9 +115,6 @@ public class PostService : IPostService
             };
             
             _dbContext.Votes.Add(newVote);
-            
-            var post = await _dbContext.Posts.FindAsync(postId);
-
             
             await _dbContext.SaveChangesAsync();
 

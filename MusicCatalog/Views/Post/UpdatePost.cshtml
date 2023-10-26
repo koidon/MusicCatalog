@@ -4,7 +4,7 @@
     ViewData["Title"] = "UpdatePost";
 }
 
-<h1>Update Post</h1>
+<h1>Uppdatera inlägg</h1>
 
 <div class="row">
     <div class="col-md-6">
@@ -13,26 +13,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="Title" class="control-label">Title</label>
+                <label asp-for="Title" class="control-label">Rubrik</label>
                 <input asp-for="Title" class="form-control"/>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Content" class="control-label">Content</label>
+                <label asp-for="Content" class="control-label">Innehåll</label>
                 <textarea asp-for="Content" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Spara</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId"class="btn btn-secondary">Back to List</a>
+    <a asp-action="AllPosts" asp-route-communityId="@Model.CommunityId" class="btn btn-secondary">Tillbaka</a>
 </div>
 
 @section Scripts {

@@ -54,16 +54,8 @@ public class CommunityController : Controller
     {
         try
         {
-            var response = await _communityService.DeleteCommunity(communityId);
-            if (response is null)
-            {
-                TempData["Alert"] =
-                    AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle tas bort");
-            }
-            else
-            {
-                TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Community har tagits bort");
-            }
+            await _communityService.DeleteCommunity(communityId);
+            TempData["Alert"] = AlertService.ShowAlert(Alerts.Success, "Community har tagits bort");
         }
         catch (Exception e)
         {
@@ -98,7 +90,7 @@ public class CommunityController : Controller
             if (community.Id == 0)
             {
                 TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Community not found");
-                return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
+                return RedirectToAction("Communities");
             }
             return View(community);
         }
@@ -108,7 +100,7 @@ public class CommunityController : Controller
             TempData["Alert"] = AlertService.ShowAlert(Alerts.Danger, "Något gick fel när community skulle hämtas");
         }
 
-        return RedirectToAction("Communities"); // Redirect to the community list or another appropriate action
+        return RedirectToAction("Communities");
     }
 
     [HttpGet]
@@ -136,7 +128,7 @@ public class CommunityController : Controller
         try
         {
             if (!ModelState.IsValid)
-                return View(); // Return to the edit view with validation errors
+                return View();
 
             await _communityService.UpdateCommunity(updatedCommunity);
 
