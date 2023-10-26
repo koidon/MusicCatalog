@@ -15,17 +15,15 @@ namespace MusicCatalog.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
     private readonly ISpotifyAccountService _spotifyAccountService;
     private readonly ISpotifyService _spotifyService;
     private readonly IConfiguration _configuration;
     private readonly IReviewService _reviewService;
     private readonly IMemoryCache _memoryCache;
 
-    public HomeController(ILogger<HomeController> logger, ISpotifyAccountService spotifyAccountService,
+    public HomeController(ISpotifyAccountService spotifyAccountService,
         IConfiguration configuration, ISpotifyService spotifyService, IReviewService reviewService, IMemoryCache memoryCache)
     {
-        _logger = logger;
         _spotifyAccountService = spotifyAccountService;
         _configuration = configuration;
         _spotifyService = spotifyService;
@@ -121,15 +119,12 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Save(string songId)
     {
-        // Get the list of saved songs from the cookie or create a new list
-        List<Song> savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
-            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"])
+
+        List<Song>? savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
+            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"] ?? string.Empty)
             : new List<Song>();
 
-
         Song songToSave = await GetSong(songId);
-
-
 
         if (savedSongs != null && savedSongs.All(s => s.Id != songToSave.Id))
         {
@@ -138,47 +133,44 @@ public class HomeController : Controller
             TempData["Alert"] =
                 AlertService.ShowAlert(Alerts.Success, "Release har sparats!");
 
-            // Save the updated list back to the cookie
+
             HttpContext.Response.Cookies.Append("SavedSongs", JsonSerializer.Serialize(savedSongs));
         }
 
-        return RedirectToAction("Index"); // Redirect back to the main page
+        return RedirectToAction("Index");
     }
 
     public IActionResult Saved()
     {
 
-        // Retrieve the list of saved song IDs from the cookie
         if (HttpContext.Request.Cookies.ContainsKey("SavedSongs"))
         {
-            List<Song> savedSongs = JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"]);
+
+            List<Song>? savedSongs = JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"] ?? string.Empty);
 
             return View(savedSongs);
         }
 
-        return View(new List<Song>()); // Display an empty list if no releases are saved
+        return View(new List<Song>());
     }
 
     [HttpPost]
     public IActionResult RemoveSong(string songId)
     {
-        // Get the list of saved songs from the cookie
-        List<Song> savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
-            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"])
+        List<Song>? savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
+            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"] ?? string.Empty)
             : new List<Song>();
 
-        // Find the song to remove by its ID
-        Song songToRemove = savedSongs.FirstOrDefault(s => s.Id == songId);
+        var songToRemove = savedSongs?.FirstOrDefault(s => s.Id == songId);
 
         if (songToRemove != null)
         {
-            savedSongs.Remove(songToRemove);
+            savedSongs?.Remove(songToRemove);
 
-            // Save the updated list back to the cookie
             HttpContext.Response.Cookies.Append("SavedSongs", JsonSerializer.Serialize(savedSongs));
         }
 
-        return RedirectToAction("Saved"); // Redirect back to the "Saved" page
+        return RedirectToAction("Saved");
     }
 
     public IActionResult Privacy()

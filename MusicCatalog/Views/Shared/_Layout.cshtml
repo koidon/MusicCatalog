@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="description" content="@ViewBag.Description">
+    <meta property="og:url" content="@ViewBag.OgUrl">
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="musiccatalog.azurewebsites.net">
     <title>@ViewData["Title"] - MusicCatalog</title>
     <link rel="stylesheet" href="~/css/darkly.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
