@@ -6,12 +6,21 @@
 
 @Html.Raw(ViewBag.Alert)
 
+<form asp-action="Index" asp-controller="Home" method="get">
+    <div class="input-group mb-3 d-flex gap-2">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Sök efter låtsläpp">
+        <button type="submit" class="btn btn-primary">Sök</button>
+    </div>
+</form>
+
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="card m-1" style="width:350px;">
             <div class="card-body">
-                <a asp-controller="Home" asp-action="Artist" asp-route-artistId="@item.ArtistId"><h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5></a>
+                <a asp-controller="Home" asp-action="Artist" asp-route-artistId="@item.ArtistId">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Artists)</h5>
+                </a>
                 <h6 class="card-subtitle mb-2 text-muted">
                     <a asp-controller="Home" asp-action="Release" asp-route-songId="@item.Id">@Html.DisplayFor(modelItem => item.TrackName)</a>
                 </h6>

@@ -32,9 +32,20 @@ public class HomeController : Controller
         _memoryCache = memoryCache;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string searchQuery)
     {
         var playlist = await GetPlaylist();
+
+
+        if (!string.IsNullOrEmpty(searchQuery))
+        {
+            searchQuery = searchQuery.ToLower();
+            playlist = playlist.Where(s =>
+                s.Artists?.ToLower() == searchQuery ||
+                s.AlbumName?.ToLower() == searchQuery ||
+                s.TrackName?.ToLower() == searchQuery
+            ).ToList();
+        }
 
         return View(playlist);
     }

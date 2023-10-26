@@ -13,24 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/dataSources/e9d03ba5-dbf6-40b5-98fa-a2e0887955c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_10_2023_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_10_2023_15_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Merge_at_2023-10-17_10_07_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Merge_at_2023-10-17_10_07__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_15_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-09_15_49__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/CommunityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/CreateCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Dtos/Community/GetCommunityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Communities/CommunityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/Communities.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/CreateCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Community/ViewCommunity.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/AllPosts.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/CreatePost.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Post/ViewPost.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -494,105 +479,49 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs</url>
           <line>31</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Services\Posts\PostService.cs" initialLine="31" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1019" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1046" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Services\Posts\PostService.cs" initialLine="31" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Services/Posts/PostService.cs</url>
           <line>29</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Services\Posts\PostService.cs" initialLine="29" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="928" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1009" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Services\Posts\PostService.cs" initialLine="29" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>47</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="45" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1130" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1166" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="45" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>49</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="47" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1180" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1263" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="47" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>53</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="51" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1324" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1339" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="51" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>42</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="40" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1033" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1057" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="40" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>44</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="42" containingFunctionPresentation="Method 'CreatePost'">
-            <startOffsets>
-              <option value="1088" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1102" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="42" containingFunctionPresentation="Method 'CreatePost'" />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MusicCatalog/Controllers/PostController.cs</url>
           <line>143</line>
-          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="141" containingFunctionPresentation="Method 'AllPosts'">
-            <startOffsets>
-              <option value="4076" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4099" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\pette\RiderProjects\MusicCatalog\MusicCatalog\Controllers\PostController.cs" initialLine="141" containingFunctionPresentation="Method 'AllPosts'" />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
