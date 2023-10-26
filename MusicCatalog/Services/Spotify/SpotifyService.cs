@@ -62,7 +62,9 @@ public class SpotifyService : ISpotifyService
             AlbumName = responseObject?.Album?.Name ?? "",
             Artists = string.Join(", ", responseObject?.Artists?.Select(artist => artist.Name) ?? Enumerable.Empty<string>()),
             Popularity = responseObject?.Popularity,
-            ImageUrl = responseObject?.Album?.Images?[0].Url ?? ""
+            ImageUrl = responseObject?.Album?.Images?[0].Url ?? "",
+            AlbumId = responseObject?.Album?.Id ?? "",
+            ArtistId = responseObject?.Artists?[0].Id ?? ""
         };
 
         return song;

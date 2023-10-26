@@ -12,8 +12,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Added sorting options">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Clickable album images">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Services/Spotify/SpotifyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Home/Privacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698312763195</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Clickable album images">
+      <option name="closed" value="true" />
+      <created>1698312987460</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1698312987460</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +466,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Initial project setup. Added identity and a basic API fetch from Spotify API" />
     <MESSAGE value="Edited .gitignore" />
     <MESSAGE value="Intial commit. Added identiy and entity framework." />
     <MESSAGE value="WIP - Reviews" />
@@ -478,7 +490,8 @@
     <MESSAGE value="fixed routing and added Alerts" />
     <MESSAGE value="Ability to Search release" />
     <MESSAGE value="Added sorting options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sorting options" />
+    <MESSAGE value="Clickable album images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clickable album images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

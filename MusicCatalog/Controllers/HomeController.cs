@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using MusicCatalog.Enums;
@@ -54,8 +55,11 @@ public class HomeController : Controller
             _ => playlist
         };
 
+        ViewBag.Alert = TempData["Alert"] ?? "";
+
         return View(playlist);
     }
+
 
     public async Task<IActionResult> Release(string songId)
     {
@@ -112,6 +116,69 @@ public class HomeController : Controller
         viewModel.ReviewCount = cachedReviewCounts;
 
         return View(viewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Save(string songId)
+    {
+        // Get the list of saved songs from the cookie or create a new list
+        List<Song> savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
+            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"])
+            : new List<Song>();
+
+
+        Song songToSave = await GetSong(songId);
+
+
+
+        if (savedSongs != null && savedSongs.All(s => s.Id != songToSave.Id))
+        {
+            savedSongs.Add(songToSave);
+
+            TempData["Alert"] =
+                AlertService.ShowAlert(Alerts.Success, "Release har sparats!");
+
+            // Save the updated list back to the cookie
+            HttpContext.Response.Cookies.Append("SavedSongs", JsonSerializer.Serialize(savedSongs));
+        }
+
+        return RedirectToAction("Index"); // Redirect back to the main page
+    }
+
+    public IActionResult Saved()
+    {
+
+        // Retrieve the list of saved song IDs from the cookie
+        if (HttpContext.Request.Cookies.ContainsKey("SavedSongs"))
+        {
+            List<Song> savedSongs = JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"]);
+
+            return View(savedSongs);
+        }
+
+        return View(new List<Song>()); // Display an empty list if no releases are saved
+    }
+
+    [HttpPost]
+    public IActionResult RemoveSong(string songId)
+    {
+        // Get the list of saved songs from the cookie
+        List<Song> savedSongs = HttpContext.Request.Cookies.ContainsKey("SavedSongs")
+            ? JsonSerializer.Deserialize<List<Song>>(HttpContext.Request.Cookies["SavedSongs"])
+            : new List<Song>();
+
+        // Find the song to remove by its ID
+        Song songToRemove = savedSongs.FirstOrDefault(s => s.Id == songId);
+
+        if (songToRemove != null)
+        {
+            savedSongs.Remove(songToRemove);
+
+            // Save the updated list back to the cookie
+            HttpContext.Response.Cookies.Append("SavedSongs", JsonSerializer.Serialize(savedSongs));
+        }
+
+        return RedirectToAction("Saved"); // Redirect back to the "Saved" page
     }
 
     public IActionResult Privacy()
