@@ -12,10 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Refactoring of code">
+    <list default="true" id="31ed879f-018e-4076-9072-ae4827a63ad4" name="Changes" comment="Swedish language for login and register">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicCatalog/Controllers/HomeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f47b5acba8a929c95035faba76833a5b3d65f9abd1f3350b92c69f8f0765b4/IViewComponentHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9daeeaab8409865442b5e80e634dc64dae9a14892fe81e0f17b46f51b2c48f8/DbSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa5d8d48a8d52525dbfbe2b393f7d44a6b89535f356fc6e74f0f74e8cc58e3c/ValidationMessageTagHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Isak/RiderProjects/MusicCatalog/MusicCatalog/Controllers/PostController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Models/Song.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MusicCatalog/Views/Home/Release.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -95,6 +95,43 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MusicCatalog: IIS Express">
+    <configuration name="Publish MusicCatalog to Azure (1)" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
+      <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
+      <option name="AZURE_WEB_APP_CONFIGURATION" value="Release" />
+      <option name="AZURE_WEB_APP_PLATFORM" value="Any CPU" />
+      <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="23f37cc1-a0ef-4abe-8e7f-dd782d732884" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP" value="0" />
+      <option name="AZURE_WEB_APP_ID" value="/subscriptions/23f37cc1-a0ef-4abe-8e7f-dd782d732884/resourceGroups/MusicCatalog/providers/Microsoft.Web/sites/musiccatalog" />
+      <option name="AZURE_WEB_APP_NAME" value="" />
+      <option name="AZURE_WEB_APP_IS_CREATE_RESOURCE_GROUP" value="0" />
+      <option name="AZURE_WEB_APP_RESOURCE_GROUP_NAME" value="" />
+      <option name="AZURE_WEB_APP_OPERATING_SYSTEM" value="WINDOWS" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="/subscriptions/23f37cc1-a0ef-4abe-8e7f-dd782d732884/resourceGroups/MusicCatalog/providers/Microsoft.Web/serverfarms/FreePlan" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="" />
+      <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
+      <option name="AZURE_WEB_APP_PRICING_TIER" value="S1" />
+      <option name="AZURE_WEB_APP_NET_FRAMEWORK" value="4.7" />
+      <option name="AZURE_WEB_APP_NET_CORE_RUNTIME" value="DOTNETCORE 2.1" />
+      <option name="AZURE_WEB_APP_IS_DEPLOY_TO_SLOT" value="0" />
+      <option name="AZURE_WEB_APP_SLOT_NAME" value="" />
+      <option name="AZURE_WEB_APP_OPEN_BROWSER_PUBLISH" value="0" />
+      <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="23f37cc1-a0ef-4abe-8e7f-dd782d732884" />
+      <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="0" />
+      <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+      <option name="AZURE_SQL_DATABASE_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+      <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="N/A" />
+      <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+      <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+      <method v="2" />
+    </configuration>
     <configuration name="Publish MusicCatalog to Azure" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
       <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/MusicCatalog/MusicCatalog.csproj" />
       <option name="AZURE_WEB_APP_CONFIGURATION" value="Release" />
@@ -231,6 +268,7 @@
       <item itemvalue=".NET Launch Settings Profile.MusicWeb: https" />
       <item itemvalue=".NET Launch Settings Profile.MusicWeb: IIS Express" />
       <item itemvalue="Azure - Publish Web App.Publish MusicCatalog to Azure" />
+      <item itemvalue="Azure - Publish Web App.Publish MusicCatalog to Azure (1)" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -497,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698335751477</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Swedish language for login and register">
+      <option name="closed" value="true" />
+      <created>1698351240188</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1698351240188</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +575,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Ability to create reviews in partial view. Added Dtos for and model validation. Added automapper" />
     <MESSAGE value="Added release view. Added ability to create reviews in release view. Added Dto for review. Added automapper for model mapping between entity model and dto. Added model validation." />
     <MESSAGE value="Starting community and post services" />
     <MESSAGE value="Added votes, fixed post and community models" />
@@ -554,7 +599,8 @@
     <MESSAGE value="Added ability to save releases to cookie" />
     <MESSAGE value="Styled individual post. Added ability to remove like. Added like to post view. Fixed multiple bugs." />
     <MESSAGE value="Refactoring of code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of code" />
+    <MESSAGE value="Swedish language for login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Swedish language for login and register" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

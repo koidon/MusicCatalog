@@ -40,9 +40,9 @@ public class HomeController : Controller
         {
             searchQuery = searchQuery.ToLower();
             playlist = playlist.Where(s =>
-                s.Artists?.ToLower() == searchQuery ||
-                s.AlbumName?.ToLower() == searchQuery ||
-                s.TrackName?.ToLower() == searchQuery
+                (s.Artists?.ToLower().Contains(searchQuery) ?? false) ||
+                (s.AlbumName?.ToLower().Contains(searchQuery) ?? false) ||
+                (s.TrackName?.ToLower().Contains(searchQuery) ?? false)
             ).ToList();
         }
 
